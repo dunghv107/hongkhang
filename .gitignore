@@ -1,0 +1,39 @@
+# Dependencies and package-manager cache
+node_modules/
+.pnpm-store/
+.yarn/
+
+# Build and framework output
+.next/
+out/
+dist/
+build/
+.vercel/
+coverage/
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and local files
+*.log
+.DS_Store
+Thumbs.db
+*.local
+
+# Local AI tools, installed skills, hooks and generated metadata
+/.agent/
+/.agents/
+/.claude/
+/.codex/
+/.gemini/
+/.impeccable/
+/.kiro/
+/skills-lock.json
+/docs/
+
+# Keep the project-owned agent contract tracked
+!.agent.md
+!AGENTS.md

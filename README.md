@@ -115,4 +115,10 @@ Chọn đúng user trong **Supabase Dashboard > Authentication > Users** và gá
 - Tài khoản có `app_metadata.role = "admin"` được chuyển tới `/admin` sau khi đăng nhập.
 - Tài khoản bình thường được chuyển về trang chủ.
 - `/admin` luôn kiểm tra lại user và role ở server.
-- Chưa thêm nghiệp vụ quản lý phòng, hợp đồng hoặc hóa đơn trong giai đoạn này.
+- `/admin` cho phép sửa tên loại phòng, giá, tiện ích, trạng thái hiển thị và thư viện ảnh Cloudinary.
+
+### Khởi tạo dữ liệu loại phòng
+
+Chạy migration [`supabase/migrations/202608150001_create_room_catalog.sql`](supabase/migrations/202608150001_create_room_catalog.sql) bằng Supabase CLI (`supabase db push`) hoặc dán toàn bộ file vào **Supabase Dashboard > SQL Editor** và chọn **Run**. Migration tạo ba loại phòng mẫu, bảng ảnh và chính sách RLS: khách chỉ đọc dữ liệu đã xuất bản; tài khoản có `app_metadata.role = "admin"` mới được thay đổi dữ liệu.
+
+Ảnh tải tại `/admin` được gửi thẳng từ Server Action lên Cloudinary. Supabase chỉ lưu URL, public ID, alt text và thứ tự hiển thị; không lưu tệp ảnh.

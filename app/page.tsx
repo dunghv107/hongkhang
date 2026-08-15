@@ -1,12 +1,10 @@
 import Image from "next/image";
+import NearbyMap from "../components/nearby-map";
+import RoomTypes from "../components/room-types";
+import { getPublicRooms } from "../lib/rooms";
 
-const rooms = [
-  { title: "Không gian phòng ngủ", description: "Ảnh chụp thực tế bên trong phòng tại Nhà trọ Hồng Khang.", image: "/images/phong-ngu-hong-khang.jpg", position: "center" },
-  { title: "Lối đi giữa các phòng", description: "Không gian di chuyển chung được chụp trực tiếp tại khu trọ.", image: "/images/loi-di-hong-khang.jpg", position: "30% center" },
-  { title: "Phòng tắm", description: "Hình ảnh thực tế để bạn xem trước khi đến xem phòng.", image: "/images/phong-tam-hong-khang.jpg", position: "72% center" },
-];
-
-export default function Home() {
+export default async function Home() {
+  const rooms = await getPublicRooms();
   return (
     <main className="site-shell">
       <a className="skip-link" href="#noi-dung">Đi đến nội dung chính</a>
@@ -45,21 +43,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="khong-gian" className="rooms-section" aria-labelledby="rooms-title">
-        <div className="container">
-          <div className="section-intro"><h2 id="rooms-title">Hình ảnh thực tế</h2><p>Xem trước phòng và khu vực chung trước khi liên hệ hẹn lịch.</p></div>
-          <div className="room-grid">
-            {rooms.map((room) => (
-              <article className="room-card" key={room.title}>
-                <div className="room-photo">
-                  <Image src={room.image} alt={room.title} fill sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectPosition: room.position }} />
-                </div>
-                <div className="room-copy"><h3>{room.title}</h3><p>{room.description}</p></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RoomTypes rooms={rooms} />
+
+      <NearbyMap />
 
       <section id="vi-tri" className="location-section" aria-labelledby="location-title">
         <div className="container location-grid">
@@ -69,7 +55,6 @@ export default function Home() {
             <p>Gọi trực tiếp để hỏi thông tin và thống nhất thời gian đến xem phòng.</p>
             <div className="contact-actions">
               <a className="primary-button" href="tel:0767245949">Gọi 0767 245 949</a>
-              <a className="secondary-button" href="tel:0764494933">Gọi 0764 494 933</a>
             </div>
           </div>
           <div className="map-wrap">
@@ -77,6 +62,18 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <aside className="floating-contact" aria-label="Liên hệ nhanh">
+        <a href="https://www.facebook.com/people/Coffee-Nh%C3%A0-G%E1%BB%97/61576986390039/" target="_blank" rel="noreferrer" aria-label="Xem Facebook Coffee Nhà Gỗ, mở trong tab mới">
+          <Image className="floating-contact-icon contact-icon" src="/icons/facebook.svg" alt="" aria-hidden="true" width={26} height={26} />
+        </a>
+        <a href="https://zalo.me/0707352905" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo cho Nhà trọ Hồng Khang, mở trong tab mới">
+          <Image className="floating-contact-icon contact-icon" src="/icons/zalo.svg" alt="" aria-hidden="true" width={28} height={28} />
+        </a>
+        <a className="floating-call" href="tel:0767245949" aria-label="Gọi Nhà trọ Hồng Khang theo số 0767 245 949">
+          <Image className="floating-contact-icon" src="/icons/phone.svg" alt="" aria-hidden="true" width={24} height={24} />
+        </a>
+      </aside>
 
       <footer className="site-footer">
         <div className="container footer-inner">

@@ -54,6 +54,10 @@ Sau khi cài, kiểm tra agent nhận ra `impeccable` và `ui-ux-pro-max` trư�
 
 Ponytail hiện được cung cấp dưới dạng Codex plugin. Mở phần Plugins/Marketplace của Codex, tìm **Ponytail**, cài plugin và xác nhận skill `ponytail` xuất hiện trong danh sách skill khả dụng. Không cần commit cache plugin vào repository.
 
+codex plugin marketplace add DietrichGebert/ponytail
+
+codex plugin add ponytail@ponytail
+
 ## Quy trình làm việc đề xuất
 
 1. Mở repository ở thư mục gốc để `AGENTS.md` có hiệu lực.
@@ -64,7 +68,7 @@ Ponytail hiện được cung cấp dưới dạng Codex plugin. Mở phần Plu
 
 ## Xác thực Supabase và email Resend
 
-Website dùng Supabase Auth cho đăng nhập, đăng ký và đặt lại mật khẩu. Resend chỉ làm nhà cung cấp SMTP cho Supabase; không đặt Resend API key trong biến `NEXT_PUBLIC_*` hoặc source code.
+Website dùng Supabase Auth cho đăng nhập quản trị và đặt lại mật khẩu. Website không mở đăng ký công khai. Resend chỉ làm nhà cung cấp SMTP cho Supabase; không đặt Resend API key trong biến `NEXT_PUBLIC_*` hoặc source code.
 
 ### Cấu hình Resend
 
@@ -90,11 +94,10 @@ Tại **Authentication > URL Configuration**:
 Các route xác thực hiện có:
 
 - `/dang-nhap`
-- `/dang-ky`
 - `/quen-mat-khau`
 - `/dat-lai-mat-khau`
 
-Sau khi SMTP và redirect URL được lưu, thử đăng ký bằng một email thật, xác nhận email, sau đó thử quên mật khẩu để kiểm tra toàn bộ luồng gửi thư.
+Sau khi SMTP và redirect URL được lưu, thử quên mật khẩu bằng email quản trị để kiểm tra toàn bộ luồng gửi thư. Trong **Authentication > General Configuration**, tắt **Allow new users to sign up** để chặn cả yêu cầu đăng ký gọi trực tiếp tới Supabase Auth API.
 
 ### Mẫu email
 

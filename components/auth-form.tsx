@@ -6,11 +6,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createClient } from "../lib/supabase/client";
 
-type Mode = "login" | "signup" | "forgot" | "reset";
+type Mode = "login" | "forgot" | "reset";
 
 const content = {
   login: { title: "Đăng nhập", description: "Đăng nhập để tiếp tục với Nhà trọ Hồng Khang.", button: "Đăng nhập" },
-  signup: { title: "Tạo tài khoản", description: "Đăng ký bằng email để nhận thông tin từ Hồng Khang.", button: "Đăng ký" },
   forgot: { title: "Quên mật khẩu", description: "Nhập email, chúng tôi sẽ gửi đường dẫn đặt lại mật khẩu.", button: "Gửi email khôi phục" },
   reset: { title: "Đặt mật khẩu mới", description: "Chọn mật khẩu mới có ít nhất 8 ký tự.", button: "Cập nhật mật khẩu" },
 } satisfies Record<Mode, { title: string; description: string; button: string }>;
@@ -26,8 +25,8 @@ export function AuthForm({ mode }: { mode: Mode }) {
   const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(false);
   const needsEmail = mode !== "reset";
-  const needsPassword = mode === "login" || mode === "signup" || mode === "reset";
-  const needsConfirmation = mode === "signup" || mode === "reset";
+  const needsPassword = mode === "login" || mode === "reset";
+  const needsConfirmation = mode === "reset";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -46,19 +45,15 @@ export function AuthForm({ mode }: { mode: Mode }) {
       if (mode === "login") {
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        router.push(data.user.app_metadata.role === "admin" ? "/admin" : "/");
+        if (data.user.app_metadata.role !== "admin") {
+          await supabase.auth.signOut();
+          setIsError(true);
+          setMessage("Tài khoản này không có quyền quản trị.");
+          return;
+        }
+        router.push("/admin");
         router.refresh();
         return;
-      }
-
-      if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: `${window.location.origin}/dang-nhap` },
-        });
-        if (error) throw error;
-        setMessage("Đăng ký thành công. Vui lòng kiểm tra email để xác nhận tài khoản.");
       }
 
       if (mode === "forgot") {
@@ -80,9 +75,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
       setMessage(
         mode === "login"
           ? "Email hoặc mật khẩu không đúng."
-          : mode === "signup"
-            ? "Không thể đăng ký. Vui lòng kiểm tra email, mật khẩu và thử lại."
-            : mode === "reset"
+          : mode === "reset"
               ? "Liên kết khôi phục không hợp lệ hoặc đã hết hạn."
               : "Chưa thể gửi email khôi phục. Vui lòng đợi một lúc rồi thử lại.",
       );
@@ -148,8 +141,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
           </form>
 
           <div className="auth-links">
-            {mode === "login" && <><Link href="/quen-mat-khau">Quên mật khẩu?</Link><span>Chưa có tài khoản? <Link href="/dang-ky">Đăng ký</Link></span></>}
-            {mode === "signup" && <span>Đã có tài khoản? <Link href="/dang-nhap">Đăng nhập</Link></span>}
+            {mode === "login" && <Link href="/quen-mat-khau">Quên mật khẩu?</Link>}
             {(mode === "forgot" || mode === "reset") && <Link href="/dang-nhap">Quay lại đăng nhập</Link>}
           </div>
         </div>

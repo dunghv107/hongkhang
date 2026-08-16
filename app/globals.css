@@ -5,6 +5,8 @@
   --color-brand: #5d5248;
   --color-soft: #c4bfba;
   --color-ink: #000000;
+  --color-call: #c62828;
+  --color-call-hover: #991b1b;
   --color-location: #d92d20;
   --color-map-active: #176b45;
   --color-paper: #ffffff;
@@ -46,8 +48,8 @@ img { display: block; }
 nav { align-items: center; display: flex; gap: clamp(1.1rem, 3vw, 2.25rem); }
 nav a { align-items: center; display: inline-flex; font-size: .92rem; font-weight: 550; min-height: 44px; text-decoration: none; }
 nav a:hover { color: var(--color-brand); }
-.header-call { background: var(--color-brand); border-radius: 999px; color: var(--color-paper); padding: .55rem 1.15rem; }
-.header-call:hover { background: var(--color-ink); color: var(--color-paper); }
+.header-call { background: var(--color-call); border-radius: 999px; color: var(--color-paper); padding: .55rem 1.15rem; }
+.header-call:hover { background: var(--color-call-hover); color: var(--color-paper); }
 
 .hero { min-height: min(72dvh, 680px); position: relative; }
 .hero-image { object-fit: cover; object-position: center 47%; }

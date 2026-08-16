@@ -21,6 +21,18 @@ body::selection { background: var(--color-brand); color: var(--color-paper); }
 a { color: inherit; text-underline-offset: .25em; -webkit-tap-highlight-color: transparent; }
 img { display: block; }
 :focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+.error-page { display: grid; min-height: 100dvh; padding: var(--space-page); place-items: center; }
+.error-panel { max-width: 35rem; }
+.error-panel > svg { color: var(--color-brand); }
+.error-panel h1 { font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: -.04em; line-height: 1; margin: 1.5rem 0 1rem; }
+.error-panel > p { color: var(--color-brand); font-size: 1.0625rem; margin: 0; max-width: 34rem; }
+.error-panel .error-code { font-size: .875rem; margin-top: .75rem; overflow-wrap: anywhere; }
+.error-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+.error-actions button, .error-actions a { align-items: center; border-radius: 999px; cursor: pointer; display: inline-flex; font: inherit; font-weight: 700; justify-content: center; min-height: 48px; padding: .75rem 1.35rem; text-decoration: none; }
+.error-actions button { background: var(--color-brand); border: 0; color: var(--color-paper); }
+.error-actions button:hover { background: var(--color-ink); }
+.error-actions a { border: 1px solid var(--color-brand); color: var(--color-brand); }
+.error-actions a:hover { background: var(--color-soft); color: var(--color-ink); }
 .site-shell { min-width: 0; overflow-x: hidden; }
 .container { margin-inline: auto; max-width: var(--container); padding-left: max(var(--space-page), env(safe-area-inset-left)); padding-right: max(var(--space-page), env(safe-area-inset-right)); width: 100%; }
 .skip-link { background: var(--color-ink); color: var(--color-paper); left: 1rem; padding: .75rem 1rem; position: fixed; top: 1rem; transform: translateY(-160%); z-index: 100; }

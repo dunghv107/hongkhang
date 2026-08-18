@@ -198,8 +198,13 @@ img { display: block; }
 .admin-sidebar { background: var(--color-paper); border-right: 1px solid var(--color-surface); display: flex; flex-direction: column; height: 100dvh; padding: 1.5rem; position: sticky; top: 0; }
 .admin-brand { border-bottom: 1px solid var(--color-surface); padding-bottom: 1.5rem; }
 .admin-nav { align-items: stretch; display: flex; flex-direction: column; gap: .25rem; margin-top: 1.5rem; }
+.admin-nav > p { color: var(--color-brand); font-size: .72rem; font-weight: 750; letter-spacing: .06em; margin: 0 0 .5rem; text-transform: uppercase; }
 .admin-nav a { border-radius: 8px; color: var(--color-brand); display: flex; font-size: .92rem; font-weight: 650; min-height: 44px; padding: .6rem .75rem; text-decoration: none; }
 .admin-nav a:hover, .admin-nav a:focus-visible { background: var(--color-canvas); color: var(--color-ink); }
+.admin-nav > a.is-active { background: var(--color-brand); color: var(--color-paper); font-size: 1rem; min-height: 52px; }
+.admin-subnav { border-left: 1px solid var(--color-surface); display: grid; gap: .1rem; margin: .35rem 0 .75rem 1rem; padding-left: .5rem; }
+.admin-subnav a { font-size: .84rem; min-height: 40px; }
+.admin-nav .admin-view-site { border-top: 1px solid var(--color-surface); border-radius: 0; margin-top: .5rem; padding-top: 1rem; }
 .admin-sidebar-footer { border-top: 1px solid var(--color-surface); margin-top: auto; padding-top: 1.25rem; }
 .admin-signout { background: var(--color-brand); border: 0; border-radius: 999px; color: var(--color-paper); cursor: pointer; font: inherit; font-weight: 700; min-height: 46px; padding: .65rem 1.2rem; }
 .admin-signout:hover { background: var(--color-ink); }
@@ -209,6 +214,11 @@ img { display: block; }
 .admin-intro { scroll-margin-top: 1rem; }
 .admin-intro h1 { font-size: clamp(2.6rem, 5vw, 4.75rem); letter-spacing: -.04em; line-height: 1; margin: 0; }
 .admin-intro p { color: var(--color-brand); margin: 1rem 0 0; max-width: 44rem; }
+.admin-create-room { background: var(--color-paper); border: 1px solid var(--color-surface); border-radius: var(--radius); margin-top: 2rem; max-width: 44rem; padding: 1rem 1.25rem; }
+.admin-create-room summary { cursor: pointer; font-weight: 750; min-height: 44px; padding-top: .5rem; }
+.admin-create-room form { align-items: end; display: grid; gap: 1rem; grid-template-columns: 1fr auto; padding-top: 1rem; }
+.admin-create-room label { color: var(--color-brand); display: grid; font-size: .84rem; font-weight: 700; gap: .4rem; }
+.admin-create-room input { background: var(--color-canvas); border: 1px solid var(--color-muted); border-radius: 10px; color: var(--color-ink); font: inherit; min-height: 48px; padding: .65rem .8rem; width: 100%; }
 .admin-placeholder { background: var(--color-soft); border-radius: var(--radius); margin-top: clamp(3rem, 7vw, 6rem); max-width: 50rem; padding: clamp(1.5rem, 4vw, 3rem); }
 .admin-placeholder h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin: 0; }
 .admin-placeholder p { margin: .75rem 0 0; }
@@ -218,6 +228,9 @@ img { display: block; }
 .admin-room-heading h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin: 0; }
 .admin-room-heading p { color: var(--color-brand); font-size: .88rem; margin: .2rem 0 0; }
 .admin-room-heading > span { background: var(--color-canvas); border-radius: 999px; color: var(--color-brand); font-size: .76rem; font-weight: 750; padding: .4rem .7rem; }
+.admin-room-heading-actions { align-items: flex-end; display: flex; flex-direction: column; gap: .5rem; }
+.admin-room-heading-actions > span { background: var(--color-canvas); border-radius: 999px; color: var(--color-brand); font-size: .76rem; font-weight: 750; padding: .4rem .7rem; }
+.admin-delete-room { background: transparent; border: 0; color: var(--color-call); cursor: pointer; font: inherit; font-size: .78rem; font-weight: 700; min-height: 36px; padding: .25rem; text-decoration: underline; text-underline-offset: .2em; }
 .admin-room-form { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
 .admin-room-form label, .admin-upload label { color: var(--color-brand); display: grid; font-size: .88rem; font-weight: 700; gap: .4rem; }
 .admin-room-form label:nth-of-type(3) { grid-column: 1 / -1; }
@@ -233,7 +246,11 @@ img { display: block; }
 .admin-image { background: var(--color-canvas); border: 1px solid var(--color-surface); border-radius: 10px; overflow: hidden; }
 .admin-image-preview { aspect-ratio: 4 / 3; position: relative; }
 .admin-image-preview img { object-fit: cover; }
+.admin-image-drag-handle { cursor: grab; user-select: none; }
+.admin-image-drag-handle:active { cursor: grabbing; }
+.admin-image.is-dragging { opacity: .45; }
 .admin-image-order { background: var(--color-ink); border-radius: 999px; color: var(--color-paper); font-size: .7rem; font-weight: 750; left: .5rem; padding: .25rem .5rem; position: absolute; top: .5rem; z-index: 1; }
+.admin-drag-instruction { background: var(--color-paper); bottom: .5rem; color: var(--color-brand); font-size: .7rem; font-weight: 700; padding: .25rem .45rem; position: absolute; right: .5rem; z-index: 1; }
 .admin-image-alt { align-items: end; border-top: 1px solid var(--color-surface); display: grid; gap: .5rem; grid-template-columns: 1fr auto; padding: .65rem; }
 .admin-image-alt label { color: var(--color-brand); display: grid; font-size: .72rem; font-weight: 700; gap: .25rem; min-width: 0; }
 .admin-image-alt input { background: var(--color-paper); border: 1px solid var(--color-muted); border-radius: 7px; color: var(--color-ink); font: inherit; font-size: .78rem; min-height: 40px; min-width: 0; padding: .45rem .55rem; width: 100%; }
@@ -243,6 +260,12 @@ img { display: block; }
 .admin-image-actions button:hover:not(:disabled) { background: var(--color-brand); color: var(--color-paper); }
 .admin-image-actions button:disabled { cursor: not-allowed; opacity: .38; }
 .admin-image-actions .admin-delete-image:hover { background: var(--color-call); }
+.admin-order-confirmation { align-items: center; background: var(--color-paper); border-top: 1px solid var(--color-surface); display: flex; gap: .75rem; margin-top: 1rem; padding-top: 1rem; }
+.admin-order-confirmation p { color: var(--color-brand); font-size: .84rem; margin: 0 auto 0 0; }
+.admin-order-confirmation button { min-height: 44px; }
+.admin-order-confirmation .admin-save:disabled { cursor: not-allowed; opacity: .45; }
+.admin-order-reset { background: transparent; border: 1px solid var(--color-brand); border-radius: 999px; color: var(--color-brand); cursor: pointer; font: inherit; font-weight: 700; padding: .55rem 1rem; }
+.admin-order-reset:disabled { cursor: not-allowed; opacity: .4; }
 .admin-upload { align-items: end; display: grid; gap: 1rem; grid-template-columns: 1fr 1fr auto; margin-top: 1rem; }
 
 @media (max-width: 900px) {
@@ -250,6 +273,7 @@ img { display: block; }
   .admin-sidebar { border-bottom: 1px solid var(--color-surface); border-right: 0; height: auto; padding: 1rem var(--space-page); position: static; }
   .admin-brand { border: 0; padding: 0; }
   .admin-nav { flex-direction: row; margin-top: 1rem; overflow-x: auto; padding-bottom: .25rem; }
+  .admin-nav > p, .admin-subnav { display: none; }
   .admin-nav a { flex: none; }
   .admin-sidebar-footer { align-items: center; display: flex; gap: 1rem; margin-top: 1rem; padding-top: 1rem; }
   .admin-sidebar-footer .admin-user { margin: 0; }
@@ -294,10 +318,15 @@ img { display: block; }
   .back-link { margin-bottom: 2rem; }
   .admin-content { padding: 2.5rem var(--space-page); }
   .admin-room-form, .admin-upload { grid-template-columns: 1fr; }
+  .admin-create-room form { grid-template-columns: 1fr; }
   .admin-room-form label:nth-of-type(3) { grid-column: auto; }
   .admin-save { width: 100%; }
   .admin-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .admin-room-heading { gap: 1rem; }
+  .admin-room-heading-actions { align-items: flex-end; flex: none; }
+  .admin-order-confirmation { align-items: stretch; flex-direction: column; }
+  .admin-order-confirmation p { margin-right: 0; }
+  .admin-order-confirmation button { width: 100%; }
   .admin-sidebar-footer { align-items: stretch; flex-direction: column; }
   .admin-sidebar-footer .admin-signout { margin-left: 0; width: 100%; }
   .room-gallery-heading { align-items: flex-start; flex-direction: column; gap: .2rem; }

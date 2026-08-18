@@ -2,11 +2,52 @@ import Image from "next/image";
 import NearbyMap from "../components/nearby-map";
 import RoomTypes from "../components/room-types";
 import { getPublicRooms } from "../lib/rooms";
+import { site } from "../lib/site";
 
 export default async function Home() {
   const rooms = await getPublicRooms();
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": `${site.url}/#business`,
+        name: site.name,
+        url: site.url,
+        image: `${site.url}/images/san-chung-hong-khang.jpg`,
+        logo: `${site.url}/images/logo-hong-khang.png`,
+        telephone: site.phones.map((phone) => `+84${phone.slice(1)}`),
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: site.address.street,
+          addressLocality: site.address.locality,
+          addressRegion: site.address.region,
+          addressCountry: site.address.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: site.geo.latitude,
+          longitude: site.geo.longitude,
+        },
+        sameAs: [site.facebook],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${site.url}/#website`,
+        url: site.url,
+        name: site.name,
+        inLanguage: "vi-VN",
+        publisher: { "@id": `${site.url}/#business` },
+      },
+    ],
+  };
+
   return (
     <main className="site-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
       <a className="skip-link" href="#noi-dung">Đi đến nội dung chính</a>
       <header className="site-header">
         <div className="container header-inner">
@@ -27,9 +68,22 @@ export default async function Home() {
         <Image className="hero-image" src="/images/san-chung-hong-khang.jpg" alt="Sân chung nhiều cây xanh tại Nhà trọ Hồng Khang" fill priority sizes="100vw" />
         <div className="hero-overlay" />
         <div className="container hero-content" id="noi-dung">
-          <h1 id="hero-title">Nhà trọ Hồng Khang<br />tại Phước Hậu</h1>
-          <p>Xem ảnh không gian thực tế và liên hệ trực tiếp để hẹn lịch xem phòng.</p>
-          <a className="primary-button" href="#khong-gian">Xem hình ảnh phòng</a>
+          <h1 id="hero-title">Nhà trọ Hồng Khang<br />tại Phước Hậu, Vĩnh Long</h1>
+          <p>Xem phòng trọ, giá, tiện ích và hình ảnh thực tế trước khi liên hệ hẹn lịch xem phòng.</p>
+          <a className="primary-button" href="#khong-gian">Xem phòng trọ</a>
+        </div>
+      </section>
+
+      <section className="local-intro" aria-labelledby="local-intro-title">
+        <div className="container local-intro-grid">
+          <div>
+            <p className="section-kicker">Phòng trọ tại Vĩnh Long</p>
+            <h2 id="local-intro-title">Tìm nhà trọ tại Phước Hậu</h2>
+          </div>
+          <div className="local-intro-copy">
+            <p>Nhà trọ Hồng Khang nằm tại 75/19E, Phường Phước Hậu, Vĩnh Long. Trang này tổng hợp thông tin cần thiết để bạn xem phòng trước khi đến.</p>
+            <p>Bạn có thể xem từng loại phòng đang được đăng, mức giá, tiện ích, hình ảnh, bản đồ và gọi trực tiếp để hỏi tình trạng phòng.</p>
+          </div>
         </div>
       </section>
 
@@ -50,7 +104,8 @@ export default async function Home() {
       <section id="vi-tri" className="location-section" aria-labelledby="location-title">
         <div className="container location-grid">
           <div className="location-copy">
-            <h2 id="location-title">Liên hệ và vị trí</h2>
+            <p className="section-kicker">Nhà trọ Phước Hậu</p>
+            <h2 id="location-title">Vị trí Nhà trọ Hồng Khang</h2>
             <p className="address">75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</p>
             <p>Gọi trực tiếp để hỏi thông tin và thống nhất thời gian đến xem phòng.</p>
             <div className="contact-actions">

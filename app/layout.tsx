@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { site } from "../lib/site";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
@@ -11,24 +12,32 @@ const geist = Geist({
   preload: false,
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.startsWith("http")
-  ? process.env.NEXT_PUBLIC_SITE_URL
-  : "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(site.url),
+  applicationName: site.name,
   icons: { icon: "/images/logo-hong-khang.png" },
-  title: "Nhà trọ Hồng Khang tại Phước Hậu, Vĩnh Long",
-  description:
-    "Xem hình ảnh thực tế, vị trí và thông tin liên hệ Nhà trọ Hồng Khang tại 75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long.",
+  title: "Nhà trọ Vĩnh Long tại Phước Hậu | Nhà trọ Hồng Khang",
+  description: site.description,
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   openGraph: {
-    title: "Nhà trọ Hồng Khang",
-    description: "Xem hình ảnh thực tế và liên hệ trực tiếp để hẹn lịch xem phòng.",
+    title: "Nhà trọ Vĩnh Long tại Phước Hậu | Nhà trọ Hồng Khang",
+    description: site.description,
     url: "/",
-    siteName: "Nhà trọ Hồng Khang",
+    siteName: site.name,
     locale: "vi_VN",
     type: "website",
+    images: [{ url: "/images/san-chung-hong-khang.jpg", alt: "Sân chung tại Nhà trọ Hồng Khang ở Phước Hậu, Vĩnh Long" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nhà trọ Vĩnh Long tại Phước Hậu | Nhà trọ Hồng Khang",
+    description: site.description,
+    images: ["/images/san-chung-hong-khang.jpg"],
   },
 };
 

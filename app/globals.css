@@ -73,6 +73,14 @@ nav a:hover { color: var(--color-brand); }
 .phone-list a { align-items: center; display: inline-flex; min-height: 44px; }
 .phone-list a:hover { color: var(--color-soft); }
 
+.local-intro { background: var(--color-paper); padding-block: clamp(3.5rem, 7vw, 6rem); }
+.local-intro-grid { display: grid; gap: clamp(1.5rem, 5vw, 5rem); grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+.section-kicker { color: var(--color-brand); font-size: .78rem; font-weight: 750; letter-spacing: .08em; margin: 0 0 .75rem; text-transform: uppercase; }
+.local-intro h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.035em; line-height: 1; margin: 0; max-width: 12ch; }
+.local-intro-copy { color: var(--color-brand); font-size: clamp(1rem, 1.5vw, 1.125rem); max-width: 38rem; }
+.local-intro-copy p { margin: 0; }
+.local-intro-copy p + p { margin-top: 1rem; }
+
 .rooms-section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .section-intro { margin-bottom: 2.5rem; max-width: 42rem; }
 .section-intro h2, .location-copy h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.035em; line-height: 1; margin: 0; }
@@ -208,6 +216,7 @@ nav a:hover { color: var(--color-brand); }
 .admin-upload { align-items: end; display: grid; gap: 1rem; grid-template-columns: 1fr auto; margin-top: 1rem; }
 
 @media (max-width: 900px) {
+  .local-intro-grid { grid-template-columns: 1fr; }
   .room-detail { grid-template-columns: 1fr; }
   .room-detail-photo { min-height: 420px; }
   .nearby-grid { grid-template-columns: 1fr; }

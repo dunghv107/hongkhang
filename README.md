@@ -72,24 +72,24 @@ Website dùng Supabase Auth cho đăng nhập quản trị và đặt lại mậ
 
 ### Cấu hình Resend
 
-1. Trong Resend, xác minh domain hoặc subdomain gửi mail, ví dụ `auth.chinsu.click`.
+1. Trong Resend, xác minh domain gửi mail `nhatrohongkhang.site`.
 2. Mở **Integrations**, kết nối Resend với Supabase và chọn đúng project Hồng Khang. Đây là cách ngắn nhất.
 3. Nếu cấu hình SMTP thủ công trong Supabase tại **Authentication > Email > SMTP Settings**, dùng:
    - Host: `smtp.resend.com`
    - Port: `465`
    - Username: `resend`
    - Password: Resend API key
-   - Sender email: địa chỉ thuộc domain đã xác minh, ví dụ `no-reply@auth.chinsu.click`
+   - Sender email: `no-reply@nhatrohongkhang.site`
    - Sender name: `Nhà trọ Hồng Khang`
 
 ### Cấu hình URL trong Supabase
 
 Tại **Authentication > URL Configuration**:
 
-- Site URL production: `https://chinsu.click`
+- Site URL production: `https://nhatrohongkhang.site`
 - Redirect URLs:
   - `http://localhost:3000/**`
-  - `https://chinsu.click/**`
+  - `https://nhatrohongkhang.site/**`
 
 Các route xác thực hiện có:
 

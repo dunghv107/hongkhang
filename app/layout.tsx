@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={geist.variable} suppressHydrationWarning>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

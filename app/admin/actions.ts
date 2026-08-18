@@ -31,6 +31,7 @@ export async function updateRoom(formData: FormData) {
 export async function uploadRoomImages(formData: FormData) {
   const supabase = await requireAdmin();
   const roomTypeId = String(formData.get("room_type_id"));
+  const altText = String(formData.get("alt_text") ?? "").trim();
   const files = formData.getAll("images").filter((item): item is File => item instanceof File && item.size > 0);
   if (!files.length) return;
 
@@ -47,9 +48,19 @@ export async function uploadRoomImages(formData: FormData) {
     });
     if (!response.ok) throw new Error("Không thể tải ảnh lên Cloudinary.");
     const uploaded = await response.json() as { secure_url: string; public_id: string };
-    const { error } = await supabase.from("room_images").insert({ room_type_id: roomTypeId, secure_url: uploaded.secure_url, public_id: uploaded.public_id, alt_text: "Hình ảnh phòng", sort_order: Math.floor(Date.now() / 1000) });
+    const { error } = await supabase.from("room_images").insert({ room_type_id: roomTypeId, secure_url: uploaded.secure_url, public_id: uploaded.public_id, alt_text: altText, sort_order: Math.floor(Date.now() / 1000) });
     if (error) throw new Error(error.message);
   }
+  revalidatePath("/");
+  revalidatePath("/admin");
+}
+
+export async function updateRoomImageAlt(formData: FormData) {
+  const supabase = await requireAdmin();
+  const id = String(formData.get("id") ?? "");
+  const altText = String(formData.get("alt_text") ?? "").trim();
+  const { error } = await supabase.from("room_images").update({ alt_text: altText }).eq("id", id);
+  if (error) throw new Error(error.message);
   revalidatePath("/");
   revalidatePath("/admin");
 }
@@ -72,6 +83,36 @@ export async function deleteRoomImage(formData: FormData) {
   }
   const { error } = await supabase.from("room_images").delete().eq("id", id);
   if (error) throw new Error(error.message);
+  revalidatePath("/");
+  revalidatePath("/admin");
+}
+
+export async function moveRoomImage(formData: FormData) {
+  const supabase = await requireAdmin();
+  const roomTypeId = String(formData.get("room_type_id") ?? "");
+  const imageId = String(formData.get("id") ?? "");
+  const direction = formData.get("direction") === "up" ? -1 : 1;
+
+  const { data: images, error: readError } = await supabase
+    .from("room_images")
+    .select("id, sort_order")
+    .eq("room_type_id", roomTypeId)
+    .order("sort_order")
+    .order("created_at");
+  if (readError) throw new Error(readError.message);
+
+  const currentIndex = images.findIndex((image) => image.id === imageId);
+  const targetIndex = currentIndex + direction;
+  if (currentIndex < 0 || targetIndex < 0 || targetIndex >= images.length) return;
+
+  const reordered = [...images];
+  [reordered[currentIndex], reordered[targetIndex]] = [reordered[targetIndex], reordered[currentIndex]];
+  const results = await Promise.all(reordered.map((image, index) =>
+    supabase.from("room_images").update({ sort_order: index + 1 }).eq("id", image.id),
+  ));
+  const updateError = results.find((result) => result.error)?.error;
+  if (updateError) throw new Error(updateError.message);
+
   revalidatePath("/");
   revalidatePath("/admin");
 }

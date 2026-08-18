@@ -1,6 +1,7 @@
 # Mẫu email Nhà trọ Hồng Khang
 
-`reset-password.html` là mẫu đầu tiên và cũng là khung giao diện chung cho các email sau này.
+- `base.html`: khung giao diện chung, dùng làm nguồn để tạo các loại email mới.
+- `reset-password.html`: bản hoàn chỉnh dành cho email đặt lại mật khẩu.
 
 ## Dùng trong Supabase
 
@@ -16,4 +17,12 @@ Supabase tự thay các biến sau khi gửi:
 - `{{ .Email }}`: email người nhận.
 - `{{ .SiteURL }}`: URL website đã cấu hình trong Supabase Auth.
 
-Khi thêm loại email mới, sao chép file này và chỉ thay phần nằm giữa hai comment `Nội dung riêng của từng loại email`.
+## Tạo loại email mới
+
+1. Sao chép `base.html` thành một file mới.
+2. Thay nội dung xem trước và `<title>` trong phần đầu file.
+3. Chỉ thay phần giữa `EMAIL_CONTENT_START` và `EMAIL_CONTENT_END`.
+4. Thay các chuỗi bắt đầu bằng `THAY_` bằng nội dung và biến Supabase phù hợp.
+5. Dán toàn bộ HTML hoàn chỉnh vào template tương ứng trên Supabase.
+
+Supabase không hỗ trợ include/partial dùng chung giữa các Email Template. Vì vậy `base.html` là nguồn thiết kế chung trong repository; mỗi template trên dashboard vẫn cần chứa HTML đầy đủ.

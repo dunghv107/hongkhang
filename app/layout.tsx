@@ -15,7 +15,6 @@ const geist = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
-  icons: { icon: "/images/logo-hong-khang.png" },
   title: "Nhà trọ Vĩnh Long tại Phước Hậu | Nhà trọ Hồng Khang",
   description: site.description,
   alternates: { canonical: "/" },
@@ -45,6 +44,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#f2f2f2",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

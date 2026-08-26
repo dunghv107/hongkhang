@@ -2,7 +2,15 @@
 
 import { createHash } from "node:crypto";
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
+import { notifyIndexNow } from "../../lib/indexnow";
 import { createClient } from "../../lib/supabase/server";
+
+function refreshPublicSite() {
+  revalidatePath("/");
+  revalidatePath("/admin");
+  after(() => notifyIndexNow());
+}
 
 async function requireAdmin() {
   const supabase = await createClient();
@@ -60,8 +68,7 @@ export async function updateRoom(formData: FormData) {
     updated_at: new Date().toISOString(),
   }).eq("id", id);
   if (error) throw new Error(error.message);
-  revalidatePath("/");
-  revalidatePath("/admin");
+  refreshPublicSite();
 }
 
 export async function uploadRoomImages(formData: FormData) {
@@ -87,8 +94,7 @@ export async function uploadRoomImages(formData: FormData) {
     const { error } = await supabase.from("room_images").insert({ room_type_id: roomTypeId, secure_url: uploaded.secure_url, public_id: uploaded.public_id, alt_text: altText, sort_order: Math.floor(Date.now() / 1000) });
     if (error) throw new Error(error.message);
   }
-  revalidatePath("/");
-  revalidatePath("/admin");
+  refreshPublicSite();
 }
 
 export async function updateRoomImageAlt(formData: FormData) {
@@ -97,8 +103,7 @@ export async function updateRoomImageAlt(formData: FormData) {
   const altText = String(formData.get("alt_text") ?? "").trim();
   const { error } = await supabase.from("room_images").update({ alt_text: altText }).eq("id", id);
   if (error) throw new Error(error.message);
-  revalidatePath("/");
-  revalidatePath("/admin");
+  refreshPublicSite();
 }
 
 export async function deleteRoomImage(formData: FormData) {
@@ -108,8 +113,7 @@ export async function deleteRoomImage(formData: FormData) {
   await destroyCloudinaryImage(publicId);
   const { error } = await supabase.from("room_images").delete().eq("id", id);
   if (error) throw new Error(error.message);
-  revalidatePath("/");
-  revalidatePath("/admin");
+  refreshPublicSite();
 }
 
 export async function deleteRoom(formData: FormData) {
@@ -123,8 +127,7 @@ export async function deleteRoom(formData: FormData) {
   for (const image of images) await destroyCloudinaryImage(image.public_id ?? "");
   const { error } = await supabase.from("room_types").delete().eq("id", id);
   if (error) throw new Error(error.message);
-  revalidatePath("/");
-  revalidatePath("/admin");
+  refreshPublicSite();
 }
 
 export async function saveRoomImageOrder(formData: FormData) {
@@ -145,6 +148,5 @@ export async function saveRoomImageOrder(formData: FormData) {
   });
   if (error) throw new Error(error.message);
 
-  revalidatePath("/");
-  revalidatePath("/admin");
+  refreshPublicSite();
 }

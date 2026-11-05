@@ -2,6 +2,8 @@
 
 Before doing any work in this repository, read `.agent.md` in full and treat it as the project's source of truth.
 
+Then read `rule.md` in full and apply it as the engineering standard for all code work. If it conflicts with `.agent.md`, `.agent.md` wins.
+
 If a deeper directory contains another `AGENTS.md`, apply both files; the deeper file may refine but must not silently contradict `.agent.md`.
 
 <!-- BEGIN:nextjs-agent-rules -->

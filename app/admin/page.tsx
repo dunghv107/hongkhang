@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { redirect } from "next/navigation";
+import { AdminImageGallery } from "../../components/admin-image-gallery";
 import { AdminShell, ChangePasswordForm } from "../../components/admin-shell";
+import { ConfirmDeleteRoomButton } from "../../components/confirm-delete-room-button";
 import { createClient } from "../../lib/supabase/server";
 import type { RoomType } from "../../lib/rooms";
 import { createRoom, deleteRoom, updateRoom } from "./actions";
@@ -18,27 +19,9 @@ export default async function AdminPage() {
   const rooms = (data ?? []) as RoomType[];
 
   return (
-    <main className="admin-page">
-      <aside className="admin-sidebar" aria-label="Điều hướng quản trị">
-        <Link className="brand admin-brand" href="/admin">
-          <Image className="brand-logo" src="/images/logo-hong-khang.png" alt="" width={68} height={68} priority />
-          <span>Quản trị<br /><strong>Hồng Khang</strong></span>
-        </Link>
-        <nav className="admin-nav">
-          <p>Chức năng quản lý</p>
-          <a className="is-active" href="#quan-ly-phong">Quản lý phòng</a>
-          <div className="admin-subnav" aria-label="Danh sách loại phòng">
-            {rooms.map((room) => <a href={`#phong-${room.id}`} key={room.id}>{room.name}</a>)}
-          </div>
-          <Link className="admin-view-site" href="/" target="_blank">Xem website</Link>
-        </nav>
-        <div className="admin-sidebar-footer">
-          <p className="admin-user">{user.email}</p>
-          <AdminSignOut />
-        </div>
-      </aside>
-      <section className="admin-content" aria-labelledby="admin-title">
-        <div id="quan-ly-phong" className="admin-intro">
+    <AdminShell email={user.email ?? "Admin"}>
+      <section className="admin-content" id="tong-quan" aria-labelledby="admin-title">
+        <div className="admin-intro">
           <h1 id="admin-title">Quản lý phòng và hình ảnh</h1>
           <p>Cập nhật thông tin, tải ảnh và sắp xếp thứ tự hiển thị trên website.</p>
           <details className="admin-create-room">
@@ -49,7 +32,7 @@ export default async function AdminPage() {
             </form>
           </details>
         </div>
-        {error ? <div className="admin-placeholder"><h2>Chưa có bảng dữ liệu phòng</h2><p>Chạy migration trong thư mục <code>supabase/migrations</code> trên Supabase rồi tải lại trang.</p></div> : <div className="admin-room-list">
+        {error ? <div className="admin-placeholder" id="phong"><h2>Chưa có bảng dữ liệu phòng</h2><p>Chạy migration trong thư mục <code>supabase/migrations</code> trên Supabase rồi tải lại trang.</p></div> : <div className="admin-room-list" id="phong">
           {rooms.map((room) => <article className="admin-room-card" id={`phong-${room.id}`} key={room.id}>
             <header className="admin-room-heading">
               <div><h2>{room.name}</h2><p>{room.room_images.length} hình ảnh</p></div>

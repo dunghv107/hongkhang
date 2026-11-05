@@ -59,7 +59,6 @@ export default async function Home() {
             <a href="#khong-gian">Không gian</a>
             <a href="#vi-tri">Vị trí</a>
             <a className="auth-link" href="/dang-nhap">Đăng nhập</a>
-            <a className="header-call" href="tel:0767245949">Gọi ngay</a>
           </nav>
         </div>
       </header>

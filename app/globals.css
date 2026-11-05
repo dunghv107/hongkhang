@@ -48,8 +48,8 @@ img { display: block; }
 .site-header nav { align-items: center; display: flex; gap: clamp(1.1rem, 3vw, 2.25rem); }
 .site-header nav a { align-items: center; display: inline-flex; font-size: .92rem; font-weight: 550; min-height: 44px; text-decoration: none; }
 .site-header nav a:hover { color: var(--color-brand); }
-.header-call { background: var(--color-call); border-radius: 999px; color: var(--color-paper); padding: .55rem 1.15rem; }
-.header-call:hover { background: var(--color-call-hover); color: var(--color-paper); }
+.auth-link { background: var(--color-call); border-radius: 999px; color: var(--color-paper); padding: .55rem 1.15rem; }
+.site-header nav .auth-link:hover { background: var(--color-call-hover); color: var(--color-paper); }
 
 .hero { min-height: min(72dvh, 680px); position: relative; }
 .hero-image { object-fit: cover; object-position: center 47%; }
@@ -229,6 +229,14 @@ img { display: block; }
 .admin-placeholder p { margin: .75rem 0 0; }
 .admin-room-list { display: grid; gap: 2rem; margin-top: 3rem; }
 .admin-room-card { background: var(--color-paper); border: 1px solid var(--color-surface); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); scroll-margin-top: 1rem; }
+.admin-intro { scroll-margin-top: 1rem; }
+.admin-intro h1 { font-size: clamp(2.6rem, 5vw, 4.75rem); letter-spacing: -.04em; line-height: 1; margin: 0; }
+.admin-intro p { color: var(--color-brand); margin: 1rem 0 0; max-width: 44rem; }
+.admin-create-room { background: var(--color-paper); border: 1px solid var(--color-surface); border-radius: var(--radius); margin-top: 2rem; max-width: 44rem; padding: 1rem 1.25rem; }
+.admin-create-room summary { cursor: pointer; font-weight: 750; min-height: 44px; padding-top: .5rem; }
+.admin-create-room form { align-items: end; display: grid; gap: 1rem; grid-template-columns: 1fr auto; padding-top: 1rem; }
+.admin-create-room label { color: var(--color-brand); display: grid; font-size: .84rem; font-weight: 700; gap: .4rem; }
+.admin-create-room input { background: var(--color-canvas); border: 1px solid var(--color-muted); border-radius: 10px; color: var(--color-ink); font: inherit; min-height: 48px; padding: .65rem .8rem; width: 100%; }
 .admin-room-heading { align-items: flex-start; border-bottom: 1px solid var(--color-surface); display: flex; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1.25rem; }
 .admin-room-heading h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin: 0; }
 .admin-room-heading p { color: var(--color-brand); font-size: .88rem; margin: .2rem 0 0; }
@@ -245,13 +253,34 @@ img { display: block; }
 .admin-save { align-self: end; background: var(--color-brand); border: 0; border-radius: 999px; color: var(--color-paper); cursor: pointer; font: inherit; font-weight: 700; min-height: 48px; padding: .7rem 1.25rem; }
 .admin-save:hover { background: var(--color-ink); }
 .admin-save:disabled { cursor: wait; opacity: .65; }
-.admin-gallery { display: grid; gap: .75rem; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 1.5rem; }
-.admin-image { background: var(--color-canvas); border-radius: 10px; overflow: hidden; padding-bottom: 44px; position: relative; }
-.admin-image > img { object-fit: cover; }
-.admin-image form { bottom: 0; height: 44px; left: 0; position: absolute; right: 0; z-index: 1; }
-.admin-image button { background: var(--color-surface); border: 0; color: var(--color-ink); cursor: pointer; font: inherit; font-size: .82rem; font-weight: 700; height: 100%; width: 100%; }
-.admin-image button:hover { background: var(--color-brand); color: var(--color-paper); }
-.admin-upload { align-items: end; display: grid; gap: 1rem; grid-template-columns: 1fr auto; margin-top: 1rem; }
+.admin-gallery-section { border-top: 1px solid var(--color-surface); margin-top: 1.5rem; padding-top: 1.5rem; }
+.admin-gallery-heading h3 { font-size: 1.15rem; margin: 0; }
+.admin-gallery-heading p, .admin-gallery-empty { color: var(--color-brand); font-size: .86rem; margin: .25rem 0 0; }
+.admin-gallery { display: grid; gap: .75rem; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1rem; }
+.admin-image { background: var(--color-canvas); border: 1px solid var(--color-surface); border-radius: 10px; overflow: hidden; }
+.admin-image-preview { aspect-ratio: 4 / 3; position: relative; }
+.admin-image-preview img { object-fit: cover; }
+.admin-image-drag-handle { cursor: grab; user-select: none; }
+.admin-image-drag-handle:active { cursor: grabbing; }
+.admin-image.is-dragging { opacity: .45; }
+.admin-image-order { background: var(--color-ink); border-radius: 999px; color: var(--color-paper); font-size: .7rem; font-weight: 750; left: .5rem; padding: .25rem .5rem; position: absolute; top: .5rem; z-index: 1; }
+.admin-drag-instruction { background: var(--color-paper); bottom: .5rem; color: var(--color-brand); font-size: .7rem; font-weight: 700; padding: .25rem .45rem; position: absolute; right: .5rem; z-index: 1; }
+.admin-image-alt { align-items: end; border-top: 1px solid var(--color-surface); display: grid; gap: .5rem; grid-template-columns: 1fr auto; padding: .65rem; }
+.admin-image-alt label { color: var(--color-brand); display: grid; font-size: .72rem; font-weight: 700; gap: .25rem; min-width: 0; }
+.admin-image-alt input { background: var(--color-paper); border: 1px solid var(--color-muted); border-radius: 7px; color: var(--color-ink); font: inherit; font-size: .78rem; min-height: 40px; min-width: 0; padding: .45rem .55rem; width: 100%; }
+.admin-image-alt button { background: var(--color-brand); border: 0; border-radius: 7px; color: var(--color-paper); cursor: pointer; font: inherit; font-size: .76rem; font-weight: 700; min-height: 40px; padding-inline: .7rem; }
+.admin-image-actions { display: grid; gap: 1px; grid-template-columns: 1fr 1fr 1fr; }
+.admin-image-actions button { background: var(--color-paper); border: 0; color: var(--color-ink); cursor: pointer; font: inherit; font-size: .78rem; font-weight: 700; min-height: 44px; width: 100%; }
+.admin-image-actions button:hover:not(:disabled) { background: var(--color-brand); color: var(--color-paper); }
+.admin-image-actions button:disabled { cursor: not-allowed; opacity: .38; }
+.admin-image-actions .admin-delete-image:hover { background: var(--color-call); }
+.admin-order-confirmation { align-items: center; background: var(--color-paper); border-top: 1px solid var(--color-surface); display: flex; gap: .75rem; margin-top: 1rem; padding-top: 1rem; }
+.admin-order-confirmation p { color: var(--color-brand); font-size: .84rem; margin: 0 auto 0 0; }
+.admin-order-confirmation button { min-height: 44px; }
+.admin-order-confirmation .admin-save:disabled { cursor: not-allowed; opacity: .45; }
+.admin-order-reset { background: transparent; border: 1px solid var(--color-brand); border-radius: 999px; color: var(--color-brand); cursor: pointer; font: inherit; font-weight: 700; padding: .55rem 1rem; }
+.admin-order-reset:disabled { cursor: not-allowed; opacity: .4; }
+.admin-upload { align-items: end; display: grid; gap: 1rem; grid-template-columns: 1fr 1fr auto; margin-top: 1rem; }
 .admin-room-list, .admin-password { scroll-margin-top: 1.5rem; }
 .admin-password { border-top: 1px solid var(--color-surface); display: grid; gap: clamp(2rem, 5vw, 5rem); grid-template-columns: minmax(0, .8fr) minmax(20rem, 1fr); margin-top: clamp(4rem, 8vw, 7rem); padding-top: clamp(2rem, 5vw, 4rem); }
 .admin-password h2 { font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.03em; line-height: 1.05; margin: 0; }
@@ -326,6 +355,11 @@ img { display: block; }
   .admin-content { padding-block: 3rem; }
   .admin-room-form, .admin-upload { grid-template-columns: 1fr; }
   .admin-create-room form { grid-template-columns: 1fr; }
+  .admin-room-heading { gap: 1rem; }
+  .admin-room-heading-actions { align-items: flex-end; flex: none; }
+  .admin-order-confirmation { align-items: stretch; flex-direction: column; }
+  .admin-order-confirmation p { margin-right: 0; }
+  .admin-order-confirmation button { width: 100%; }
   .admin-room-form label:nth-of-type(3) { grid-column: auto; }
   .admin-save { width: 100%; }
   .admin-password { gap: 1.5rem; }

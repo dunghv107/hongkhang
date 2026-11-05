@@ -73,7 +73,6 @@ export default async function Home() {
             <p>Nhà trọ Hồng Khang nằm tại 75/19E, Phường Phước Hậu, Vĩnh Long. Trang này tổng hợp thông tin cần thiết để bạn xem phòng trước khi đến.</p>
             <p>Bạn có thể xem từng loại phòng đang được đăng, mức giá, tiện ích, hình ảnh, bản đồ và gọi trực tiếp để hỏi tình trạng phòng.</p>
           </div>
-          <a className="primary-button" href="#khong-gian">Xem phòng trọ</a>
         </div>
       </section>
 

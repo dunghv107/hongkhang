@@ -22,8 +22,7 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
     <section id="khong-gian" className="rooms-section" aria-labelledby="rooms-title">
       <div className="container">
         <div className="section-intro">
-          <h2 id="rooms-title">Phòng trọ tại Nhà trọ Hồng Khang</h2>
-          <p>Chọn một loại phòng để xem hình ảnh, giá và tiện ích đi kèm.</p>
+          <h2 id="rooms-title">Hình ảnh tại nhà trọ Hồng Khang</h2>
         </div>
         <div className="room-selector" aria-label="Chọn loại phòng">
           {rooms.map((item, index) => (

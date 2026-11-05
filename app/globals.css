@@ -10,7 +10,7 @@
   --color-location: #d92d20;
   --color-map-active: #176b45;
   --color-paper: #ffffff;
-  --color-overlay: rgb(0 0 0 / 0.52);
+  --color-overlay: rgb(0 0 0 / 0.55);
   --container: 1180px;
   --space-page: clamp(1rem, 4vw, 2rem);
   --radius: 14px;
@@ -54,7 +54,7 @@ img { display: block; }
 .hero { min-height: min(72dvh, 680px); position: relative; }
 .hero-image { object-fit: cover; object-position: center 47%; }
 .hero-overlay { background: var(--color-overlay); inset: 0; position: absolute; }
-.hero-content { color: var(--color-paper); display: flex; flex-direction: column; justify-content: center; min-height: min(72dvh, 680px); position: relative; }
+.hero-content { color: var(--color-paper); display: flex; flex-direction: column; justify-content: center; min-height: min(72dvh, 680px); padding-block: 2.5rem; position: relative; }
 .hero h1 { font-size: clamp(2.8rem, 6vw, 5.8rem); font-weight: 650; letter-spacing: -.04em; line-height: .98; margin: 0; max-width: 12ch; text-wrap: balance; }
 .hero p { font-size: clamp(1rem, 1.6vw, 1.25rem); margin: 1.5rem 0 0; max-width: 38rem; }
 .primary-button, .secondary-button { align-items: center; border-radius: 999px; display: inline-flex; font-weight: 650; justify-content: center; min-height: 48px; padding: .75rem 1.35rem; text-decoration: none; transition: background-color .2s, color .2s, transform .2s; white-space: nowrap; }
@@ -73,11 +73,8 @@ img { display: block; }
 .phone-list a { align-items: center; display: inline-flex; min-height: 44px; }
 .phone-list a:hover { color: var(--color-soft); }
 
-.local-intro { background: var(--color-paper); padding-block: clamp(3.5rem, 7vw, 6rem); }
-.local-intro-grid { display: grid; gap: clamp(1.5rem, 5vw, 5rem); grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
 .section-kicker { color: var(--color-brand); font-size: .78rem; font-weight: 750; letter-spacing: .08em; margin: 0 0 .75rem; text-transform: uppercase; }
-.local-intro h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.035em; line-height: 1; margin: 0; max-width: 12ch; }
-.local-intro-copy { color: var(--color-brand); font-size: clamp(1rem, 1.5vw, 1.125rem); max-width: 38rem; }
+.local-intro-copy { margin-top: 1rem; max-width: 38rem; }
 .local-intro-copy p { margin: 0; }
 .local-intro-copy p + p { margin-top: 1rem; }
 
@@ -301,7 +298,6 @@ img { display: block; }
   .admin-sidebar-footer { align-items: center; display: flex; gap: 1rem; margin-top: 1rem; padding-top: 1rem; }
   .admin-sidebar-footer .admin-user { margin: 0; }
   .admin-sidebar-footer .admin-signout { margin-left: auto; }
-  .local-intro-grid { grid-template-columns: 1fr; }
   .room-detail { grid-template-columns: 1fr; }
   .room-detail-photo { min-height: 420px; }
   .nearby-grid { grid-template-columns: 1fr; }

@@ -69,20 +69,11 @@ export default async function Home() {
         <div className="container hero-content" id="noi-dung">
           <h1 id="hero-title">Nhà trọ Hồng Khang<br />tại Phước Hậu, Vĩnh Long</h1>
           <p>Xem phòng trọ, giá, tiện ích và hình ảnh thực tế trước khi liên hệ hẹn lịch xem phòng.</p>
-          <a className="primary-button" href="#khong-gian">Xem phòng trọ</a>
-        </div>
-      </section>
-
-      <section className="local-intro" aria-labelledby="local-intro-title">
-        <div className="container local-intro-grid">
-          <div>
-            <p className="section-kicker">Phòng trọ tại Vĩnh Long</p>
-            <h2 id="local-intro-title">Tìm nhà trọ tại Phước Hậu</h2>
-          </div>
           <div className="local-intro-copy">
             <p>Nhà trọ Hồng Khang nằm tại 75/19E, Phường Phước Hậu, Vĩnh Long. Trang này tổng hợp thông tin cần thiết để bạn xem phòng trước khi đến.</p>
             <p>Bạn có thể xem từng loại phòng đang được đăng, mức giá, tiện ích, hình ảnh, bản đồ và gọi trực tiếp để hỏi tình trạng phòng.</p>
           </div>
+          <a className="primary-button" href="#khong-gian">Xem phòng trọ</a>
         </div>
       </section>
 

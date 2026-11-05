@@ -100,11 +100,12 @@ export default function NearbyMap() {
   }
 
   return (
-    <section className="nearby-section" aria-labelledby="nearby-title">
+    <section id="vi-tri" className="nearby-section" aria-labelledby="nearby-title">
       <div className="container nearby-grid">
         <div className="nearby-copy">
-          <h2 id="nearby-title">Tiện ích gần nhà trọ tại Phước Hậu</h2>
-          <p>Xem nhanh các địa điểm trong bán kính 5 km quanh Nhà trọ Hồng Khang.</p>
+          <h2 id="nearby-title">Vị trí và tiện ích gần nhà trọ</h2>
+          <p className="address">75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</p>
+          <p>Xem nhanh các địa điểm trong bán kính 5 km quanh nhà trọ, hoặc gọi trực tiếp để thống nhất thời gian đến xem phòng.</p>
           <div className="nearby-filters" aria-label="Chọn loại tiện ích">
             {(Object.keys(categories) as Category[]).map((category) => {
               const Icon = categories[category].icon;
@@ -115,8 +116,12 @@ export default function NearbyMap() {
             })}
           </div>
           <p className="nearby-status" aria-live="polite">{status}</p>
+          <div className="contact-actions">
+            <a className="primary-button" href="tel:0767245949">Gọi 0767 245 949</a>
+            <a className="secondary-button" href={`https://www.google.com/maps/search/?api=1&query=${HOME.lat},${HOME.lng}`} target="_blank" rel="noreferrer">Mở Google Maps</a>
+          </div>
         </div>
-        <div>
+        <div className="nearby-map-column">
           <div ref={mapNode} className="nearby-map" aria-label="Bản đồ tiện ích trong bán kính 5 km quanh Nhà trọ Hồng Khang" />
           <p className="nearby-map-hint">Giữ Ctrl và lăn chuột để phóng to hoặc thu nhỏ bản đồ.</p>
         </div>

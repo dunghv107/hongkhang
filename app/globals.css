@@ -68,14 +68,13 @@ img { display: block; }
 .phone-list a { align-items: center; display: inline-flex; min-height: 44px; }
 .phone-list a:hover { color: var(--color-soft); }
 
-.section-kicker { color: var(--color-brand); font-size: .78rem; font-weight: 750; letter-spacing: .08em; margin: 0 0 .75rem; text-transform: uppercase; }
 .local-intro-copy { align-self: center; grid-column: 2; grid-row: 1 / span 2; }
 .local-intro-copy p { margin: 0; }
 .local-intro-copy p + p { margin-top: 1rem; }
 
 .rooms-section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .section-intro { margin-bottom: 2.5rem; max-width: 42rem; }
-.section-intro h2, .location-copy h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.035em; line-height: 1; margin: 0; }
+.section-intro h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.035em; line-height: 1; margin: 0; }
 .section-intro p { color: var(--color-brand); margin: 1rem 0 0; }
 .room-selector { display: grid; gap: .75rem; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 1.25rem; }
 .room-selector button { align-items: center; background: var(--color-paper); border: 1px solid var(--color-surface); border-radius: 12px; color: var(--color-ink); cursor: pointer; display: grid; font: inherit; gap: .15rem .9rem; grid-template-columns: 76px 1fr; min-height: 92px; padding: .5rem; text-align: left; }
@@ -120,6 +119,13 @@ img { display: block; }
 .nearby-status { font-size: .9rem; min-height: 3rem; }
 .nearby-map { background: var(--color-canvas); border-radius: var(--radius); height: min(55vw, 480px); min-height: 400px; overflow: hidden; z-index: 0; }
 .nearby-map-hint { color: var(--color-brand); font-size: .82rem; margin: .65rem 0 0; text-align: right; }
+
+@media (min-width: 901px) {
+  .nearby-grid { align-items: stretch; }
+  .nearby-map-column { display: flex; flex-direction: column; }
+  .nearby-map { flex: 1; height: auto; }
+}
+
 .map-home-marker span { background: var(--color-location); border: 4px solid var(--color-paper); border-radius: 50% 50% 50% 0; display: block; height: 28px; transform: rotate(-45deg); width: 28px; }
 .map-home-marker span::after { background: var(--color-paper); border-radius: 50%; content: ""; height: 6px; left: 7px; position: absolute; top: 7px; width: 6px; }
 .map-place-marker span { align-items: center; background: var(--color-map-active); border: 3px solid var(--color-paper); border-radius: 50%; color: var(--color-paper); display: flex; height: 36px; justify-content: center; width: 36px; }
@@ -129,11 +135,7 @@ img { display: block; }
 .leaflet-popup-content strong { color: var(--color-ink); font-size: .95rem; }
 .leaflet-popup-content p { color: var(--color-brand); line-height: 1.4; margin: .35rem 0 0; }
 
-.location-section { background: var(--color-surface); padding-block: clamp(4.5rem, 9vw, 8rem); }
-.location-grid { align-items: stretch; display: grid; gap: clamp(2rem, 5vw, 5rem); grid-template-columns: .8fr 1.2fr; }
-.location-copy { align-self: center; }
-.location-copy > p { max-width: 32rem; }
-.location-copy .address { color: var(--color-brand); font-size: 1.2rem; font-weight: 650; margin-top: 1.5rem; }
+.nearby-copy .address { color: var(--color-brand); font-size: 1.2rem; font-weight: 650; margin-top: 1.5rem; }
 .contact-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
 .contact-icon { animation: contact-icon-shake 5s ease-in-out infinite; flex: 0 0 auto; transform-origin: 50% 70%; }
 
@@ -150,8 +152,6 @@ img { display: block; }
 .floating-contact .floating-call { background: var(--color-brand); border-color: var(--color-brand); }
 .floating-contact .floating-call:hover { background: var(--color-ink); }
 .floating-contact-icon { height: 1.65rem; object-fit: contain; width: 1.65rem; }
-.map-wrap { background: var(--color-soft); border-radius: var(--radius); min-height: 440px; overflow: hidden; }
-.map-wrap iframe { border: 0; display: block; height: 100%; min-height: 440px; width: 100%; }
 
 .site-footer { background: var(--color-brand); color: var(--color-paper); }
 .footer-inner { align-items: center; display: grid; gap: clamp(1.5rem, 4vw, 3rem); grid-template-columns: repeat(3, minmax(0, 1fr)); padding-block: 2rem; }
@@ -303,7 +303,6 @@ img { display: block; }
   .room-detail { grid-template-columns: 1fr; }
   .room-detail-photo { min-height: 420px; }
   .nearby-grid { grid-template-columns: 1fr; }
-  .location-grid { grid-template-columns: 1fr; }
   .auth-page { grid-template-columns: 1fr; }
   .auth-visual { min-height: 20rem; }
   .auth-brand-block { bottom: 2rem; left: var(--space-page); }
@@ -337,7 +336,6 @@ img { display: block; }
   .contact-actions { flex-direction: column; }
   .primary-button, .secondary-button { width: 100%; }
   .hero .primary-button { width: auto; }
-  .map-wrap, .map-wrap iframe { min-height: 360px; }
   .footer-inner { grid-template-columns: minmax(0, 1fr); padding-right: 5.5rem; }
   .auth-visual { display: none; }
   .auth-page { display: block; max-width: 100vw; min-width: 0; width: 100vw; }

@@ -81,23 +81,6 @@ export default async function Home() {
 
       <NearbyMap />
 
-      <section id="vi-tri" className="location-section" aria-labelledby="location-title">
-        <div className="container location-grid">
-          <div className="location-copy">
-            <p className="section-kicker">Nhà trọ Phước Hậu</p>
-            <h2 id="location-title">Vị trí Nhà trọ Hồng Khang</h2>
-            <p className="address">75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</p>
-            <p>Gọi trực tiếp để hỏi thông tin và thống nhất thời gian đến xem phòng.</p>
-            <div className="contact-actions">
-              <a className="primary-button" href="tel:0767245949">Gọi 0767 245 949</a>
-            </div>
-          </div>
-          <div className="map-wrap">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.3928982489756!2d105.9626565!3d10.229861699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a83004c01a997%3A0x5270a76fd135cf1a!2zQ29mZmVlIE5ow6AgR-G7lw!5e0!3m2!1svi!2s!4v1786720977491!5m2!1svi!2s" title="Bản đồ vị trí Nhà trọ Hồng Khang" loading="lazy" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
-          </div>
-        </div>
-      </section>
-
       <aside className="floating-contact" aria-label="Liên hệ nhanh">
         <a href="https://www.facebook.com/people/Coffee-Nh%C3%A0-G%E1%BB%97/61576986390039/" target="_blank" rel="noreferrer" aria-label="Xem Facebook Coffee Nhà Gỗ, mở trong tab mới">
           <Image className="floating-contact-icon contact-icon" src="/icons/facebook.svg" alt="" aria-hidden="true" width={26} height={26} />

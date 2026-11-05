@@ -17,7 +17,7 @@ export async function updateRoom(formData: FormData) {
   const price = Number(formData.get("price_vnd"));
   const amenities = String(formData.get("amenities") ?? "").split(",").map((item) => item.trim()).filter(Boolean);
   const { error } = await supabase.from("room_types").update({
-    name: String(formData.get("name") ?? "").trim(),
+    name: String(formData.get("name") ?? "").trim(),  
     price_vnd: Number.isFinite(price) ? price : null,
     amenities,
     published: formData.get("published") === "on",

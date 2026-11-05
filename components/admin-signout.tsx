@@ -1,5 +1,6 @@
 "use client";
 
+import { SignOut } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { createClient } from "../lib/supabase/client";
@@ -16,5 +17,5 @@ export function AdminSignOut() {
     router.refresh();
   }
 
-  return <button className="admin-signout" type="button" onClick={signOut} disabled={loading}>{loading ? "Đang đăng xuất..." : "Đăng xuất"}</button>;
+  return <button className="admin-signout" type="button" onClick={signOut} disabled={loading} title="Đăng xuất"><SignOut size={22} aria-hidden="true" /><span>{loading ? "Đang đăng xuất..." : "Đăng xuất"}</span></button>;
 }

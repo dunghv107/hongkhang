@@ -3,7 +3,10 @@ import { redirect } from "next/navigation";
 import { AuthForm } from "../../components/auth-form";
 import { createClient } from "../../lib/supabase/server";
 
-export const metadata: Metadata = { title: "Đăng nhập | Nhà trọ Hồng Khang" };
+export const metadata: Metadata = {
+  title: "Đăng nhập | Nhà trọ Hồng Khang",
+  robots: { index: false, follow: false },
+};
 
 export default async function LoginPage() {
   const supabase = await createClient();

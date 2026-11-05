@@ -103,7 +103,7 @@ export default function NearbyMap() {
     <section className="nearby-section" aria-labelledby="nearby-title">
       <div className="container nearby-grid">
         <div className="nearby-copy">
-          <h2 id="nearby-title">Tiện ích xung quanh</h2>
+          <h2 id="nearby-title">Tiện ích gần nhà trọ tại Phước Hậu</h2>
           <p>Xem nhanh các địa điểm trong bán kính 5 km quanh Nhà trọ Hồng Khang.</p>
           <div className="nearby-filters" aria-label="Chọn loại tiện ích">
             {(Object.keys(categories) as Category[]).map((category) => {

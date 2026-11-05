@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>THAY_TIÊU_ĐỀ_EMAIL</title>
+    <style>
+      @media only screen and (max-width: 620px) {
+        .email-shell { width: 100% !important; }
+        .email-card { padding: 32px 24px !important; }
+        .email-title { font-size: 28px !important; line-height: 34px !important; }
+        .email-button { display: block !important; text-align: center !important; }
+      }
+    </style>
+  </head>
+  <body style="margin:0; padding:0; background:#f2f2f2; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+    <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent;">
+      THAY_NỘI_DUNG_XEM_TRƯỚC
+    </div>
+
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%; background:#f2f2f2;">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+          <table class="email-shell" role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="width:600px; max-width:600px;">
+            <tr>
+              <td style="padding:0 0 16px;">
+                <a href="{{ .SiteURL }}" style="color:#000000; text-decoration:none;">
+                  <img src="{{ .SiteURL }}/images/logo-hong-khang.png" width="72" height="72" alt="Nhà trọ Hồng Khang" style="display:block; width:72px; height:72px; border:0; border-radius:12px; object-fit:cover;" />
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="email-card" style="padding:48px; background:#ffffff; border:1px solid #d3d2d1; border-radius:16px;">
+                <!-- EMAIL_CONTENT_START: Chỉ thay phần nằm giữa hai marker này. -->
+                <p style="margin:0 0 12px; color:#5d5248; font-size:14px; font-weight:700; line-height:20px;">Nhà trọ Hồng Khang</p>
+                <h1 class="email-title" style="margin:0 0 20px; color:#000000; font-size:34px; font-weight:700; line-height:40px; letter-spacing:-0.02em;">THAY_TIÊU_ĐỀ_NỘI_DUNG</h1>
+                <p style="margin:0 0 28px; color:#000000; font-size:16px; line-height:26px;">THAY_NỘI_DUNG_EMAIL</p>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td style="border-radius:10px; background:#000000;">
+                      <a class="email-button" href="THAY_ĐƯỜNG_DẪN" style="display:inline-block; padding:15px 24px; color:#ffffff; font-size:16px; font-weight:700; line-height:20px; text-decoration:none; border-radius:10px;">THAY_NHÃN_NÚT</a>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:28px 0 0; padding-top:24px; border-top:1px solid #d3d2d1; color:#5d5248; font-size:14px; line-height:22px;">THAY_GHI_CHÚ_BẢO_MẬT_HOẶC_HỖ_TRỢ</p>
+                <!-- EMAIL_CONTENT_END -->
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 8px 0; color:#5d5248; font-size:13px; line-height:21px;">
+                <strong style="color:#000000;">Nhà trọ Hồng Khang</strong><br />
+                75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long<br />
+                0767 245 949 | 0764 494 933<br />
+                <a href="{{ .SiteURL }}" style="color:#5d5248; text-decoration:underline;">nhatrohongkhang.site</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

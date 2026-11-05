@@ -57,27 +57,31 @@ export function AuthForm({ mode }: { mode: Mode }) {
       }
 
       if (mode === "forgot") {
-        const { error } = await supabase.auth.resetPasswordForEmail(email, {
-          redirectTo: `${window.location.origin}/dat-lai-mat-khau`,
+        const response = await fetch("/api/auth/recover", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
         });
-        if (error) throw error;
-        setMessage("Nếu email tồn tại, đường dẫn khôi phục đã được gửi. Vui lòng kiểm tra hộp thư.");
+        const result = await response.json() as { message?: string };
+        if (!response.ok) throw new Error(result.message ?? "Chưa thể gửi email khôi phục.");
+        setMessage(result.message ?? "Nếu email tồn tại, đường dẫn khôi phục đã được gửi. Vui lòng kiểm tra hộp thư.");
       }
 
       if (mode === "reset") {
         const { error } = await supabase.auth.updateUser({ password });
         if (error) throw error;
-        setMessage("Mật khẩu đã được cập nhật. Bạn có thể đăng nhập lại.");
         await supabase.auth.signOut();
+        router.replace("/dang-nhap");
+        return;
       }
-    } catch {
+    } catch (error) {
       setIsError(true);
       setMessage(
         mode === "login"
           ? "Email hoặc mật khẩu không đúng."
           : mode === "reset"
               ? "Liên kết khôi phục không hợp lệ hoặc đã hết hạn."
-              : "Chưa thể gửi email khôi phục. Vui lòng đợi một lúc rồi thử lại.",
+              : error instanceof Error ? error.message : "Chưa thể gửi email khôi phục. Vui lòng đợi một lúc rồi thử lại.",
       );
     } finally {
       setLoading(false);

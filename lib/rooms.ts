@@ -3,12 +3,11 @@ export type RoomType = { id: string; name: string; price_vnd: number | null; ame
 
 export const fallbackRooms: RoomType[] = [
   { id: "1", name: "Loại 1", price_vnd: 3500000, amenities: ["Tủ lạnh", "Máy lạnh", "Phòng tắm riêng"], sort_order: 1, published: true, room_images: [
-    { secure_url: "/images/phong-ngu-hong-khang.jpg", alt_text: "Không gian phòng Loại 1", sort_order: 1 },
-    { secure_url: "/images/loi-di-hong-khang.jpg", alt_text: "Lối đi khu phòng Loại 1", sort_order: 2 },
-    { secure_url: "/images/phong-tam-hong-khang.jpg", alt_text: "Phòng tắm Loại 1", sort_order: 3 },
+    { secure_url: "/images/room-1-door.png", alt_text: "Cửa gỗ phòng 103 trên tường gạch, bên cạnh tượng gỗ chim công", sort_order: 1 },
+    { secure_url: "/images/room-1-bed.png", alt_text: "Toàn cảnh phòng Loại 1 với giường đôi, máy lạnh, bàn ghế và sàn giả gỗ", sort_order: 2 },
+    { secure_url: "/images/room-1-window.jpg", alt_text: "Góc phòng Loại 1 có cửa sổ tròn, bộ bàn ghế và tủ quần áo gỗ", sort_order: 3 },
+    { secure_url: "/images/room-1-sink.jpg", alt_text: "Khu bếp phòng Loại 1 có bồn rửa, kệ chén và tủ gỗ", sort_order: 4 },
   ] },
-  { id: "2", name: "Loại 2", price_vnd: 3500000, amenities: ["Tủ lạnh", "Máy lạnh", "Phòng tắm riêng"], sort_order: 2, published: true, room_images: [{ secure_url: "/images/loi-di-hong-khang.jpg", alt_text: "Hình ảnh phòng Loại 2", sort_order: 1 }] },
-  { id: "3", name: "Loại 3", price_vnd: 3500000, amenities: ["Tủ lạnh", "Máy lạnh", "Phòng tắm riêng"], sort_order: 3, published: true, room_images: [{ secure_url: "/images/phong-tam-hong-khang.jpg", alt_text: "Hình ảnh phòng Loại 3", sort_order: 1 }] },
 ];
 
 export async function getPublicRooms() {

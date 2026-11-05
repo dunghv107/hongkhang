@@ -13,7 +13,7 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
   const [active, setActive] = useState(0);
   const [activeImage, setActiveImage] = useState(0);
   const room = rooms[active];
-  const images = room.room_images.length ? room.room_images : [{ secure_url: "/images/phong-ngu-hong-khang.jpg", alt_text: `Phòng ${room.name}`, sort_order: 1 }];
+  const images = room.room_images.length ? room.room_images : [{ secure_url: "/images/room-1-door.png", alt_text: `Phòng ${room.name}`, sort_order: 1 }];
   const selectedImage = images[activeImage] ?? images[0];
   const selectPreviousImage = () => setActiveImage((current) => (current - 1 + images.length) % images.length);
   const selectNextImage = () => setActiveImage((current) => (current + 1) % images.length);
@@ -28,7 +28,7 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
         <div className="room-selector" aria-label="Chọn loại phòng">
           {rooms.map((item, index) => (
             <button key={item.id} type="button" aria-pressed={active === index} aria-controls="room-detail" className={active === index ? "is-active" : ""} onClick={() => { setActive(index); setActiveImage(0); }}>
-              <span className="room-selector-photo"><Image src={item.room_images[0]?.secure_url ?? "/images/phong-ngu-hong-khang.jpg"} alt="" fill sizes="(max-width: 640px) 28vw, 220px" /></span>
+              <span className="room-selector-photo"><Image src={item.room_images[0]?.secure_url ?? "/images/room-1-door.png"} alt="" fill sizes="(max-width: 640px) 28vw, 220px" /></span>
               <strong>{item.name}</strong>
               <span>Xem chi tiết</span>
             </button>

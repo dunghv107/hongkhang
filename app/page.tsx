@@ -77,16 +77,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="quick-contact" aria-label="Thông tin liên hệ nhanh">
-        <div className="container quick-contact-grid">
-          <div><span>Địa chỉ</span><strong>75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</strong></div>
-          <div>
-            <span>Điện thoại</span>
-            <div className="phone-list"><a href="tel:0767245949">0767 245 949</a><a href="tel:0764494933">0764 494 933</a></div>
-          </div>
-        </div>
-      </section>
-
       <RoomTypes rooms={rooms} />
 
       <NearbyMap />
@@ -123,7 +113,11 @@ export default async function Home() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <a className="brand footer-brand" href="#top"><Image className="brand-logo" src="/images/logo-hong-khang.png" alt="" width={64} height={64} /><span>Nhà trọ <strong>Hồng Khang</strong></span></a>
-          <p>75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long<br /><a href="/dang-nhap">Đăng nhập</a></p>
+          <div className="footer-contact"><span>Địa chỉ</span><strong>75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</strong></div>
+          <div className="footer-contact">
+            <span>Điện thoại</span>
+            <div className="phone-list"><a href="tel:0767245949">0767 245 949</a><a href="tel:0764494933">0764 494 933</a></div>
+          </div>
         </div>
       </footer>
     </main>

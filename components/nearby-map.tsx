@@ -30,8 +30,8 @@ export default function NearbyMap() {
   const mapNode = useRef<HTMLDivElement>(null);
   const map = useRef<LeafletMap | null>(null);
   const placeLayer = useRef<LayerGroup | null>(null);
-  const [active, setActive] = useState<Category | null>(null);
-  const [status, setStatus] = useState("Chọn một loại tiện ích để xem các địa điểm trong bán kính 5 km.");
+  const [active, setActive] = useState<Category>("school");
+  const [status, setStatus] = useState("Đang tải các địa điểm trong bán kính 5 km.");
 
   useEffect(() => {
     if (!mapNode.current || map.current) return;
@@ -58,6 +58,7 @@ export default function NearbyMap() {
       }).addTo(instance).bindPopup("Nhà trọ Hồng Khang").openPopup();
       placeLayer.current = L.layerGroup().addTo(instance);
       map.current = instance;
+      showCategory("school");
     });
 
     return () => {
@@ -105,7 +106,7 @@ export default function NearbyMap() {
         <div className="nearby-copy">
           <h2 id="nearby-title">Vị trí và tiện ích gần nhà trọ</h2>
           <p className="address">75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</p>
-          <p>Xem nhanh các địa điểm trong bán kính 5 km quanh nhà trọ, hoặc gọi trực tiếp để thống nhất thời gian đến xem phòng.</p>
+          <p>Xem nhanh các địa điểm trong bán kính 5 km quanh nhà trọ.</p>
           <div className="nearby-filters" aria-label="Chọn loại tiện ích">
             {(Object.keys(categories) as Category[]).map((category) => {
               const Icon = categories[category].icon;
@@ -117,7 +118,6 @@ export default function NearbyMap() {
           </div>
           <p className="nearby-status" aria-live="polite">{status}</p>
           <div className="contact-actions">
-            <a className="primary-button" href="tel:0767245949">Gọi 0767 245 949</a>
             <a className="secondary-button" href={`https://www.google.com/maps/search/?api=1&query=${HOME.lat},${HOME.lng}`} target="_blank" rel="noreferrer">Mở Google Maps</a>
           </div>
         </div>

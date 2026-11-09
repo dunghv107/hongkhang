@@ -72,7 +72,7 @@ img { display: block; }
 .local-intro-copy p { margin: 0; }
 .local-intro-copy p + p { margin-top: 1rem; }
 
-.rooms-section { padding-bottom: clamp(2.25rem, 4.5vw, 4rem); padding-top: clamp(4.5rem, 9vw, 8rem); }
+.rooms-section { padding-bottom: clamp(2.25rem, 4.5vw, 4rem); padding-top: clamp(2.25rem, 4.5vw, 4rem); }
 .section-intro { margin-bottom: 2.5rem; }
 .section-intro h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.035em; line-height: 1; margin: 0; }
 .section-intro p { color: var(--color-brand); margin: 1rem 0 0; }

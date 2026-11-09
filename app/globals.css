@@ -73,7 +73,7 @@ img { display: block; }
 .local-intro-copy p + p { margin-top: 1rem; }
 
 .rooms-section { padding-block: clamp(4.5rem, 9vw, 8rem); }
-.section-intro { margin-bottom: 2.5rem; max-width: 42rem; }
+.section-intro { margin-bottom: 2.5rem; }
 .section-intro h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.035em; line-height: 1; margin: 0; }
 .section-intro p { color: var(--color-brand); margin: 1rem 0 0; }
 .room-selector { display: grid; gap: .75rem; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 1.25rem; }

@@ -116,6 +116,14 @@ img { display: block; }
 .nearby-status { font-size: .9rem; min-height: 3rem; }
 .nearby-map { background: var(--color-canvas); border-radius: var(--radius); height: min(55vw, 480px); min-height: 400px; overflow: hidden; z-index: 0; }
 .nearby-map-hint { color: var(--color-brand); font-size: .82rem; margin: .65rem 0 0; text-align: right; }
+.recommended-section { background: var(--color-canvas); padding-block: clamp(2.25rem, 4.5vw, 4rem); }
+.recommended-grid { display: grid; gap: 1rem; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; }
+.recommended-card { background: var(--color-paper); border: 1px solid var(--color-surface); border-radius: var(--radius); color: var(--color-ink); display: flex; flex-direction: column; gap: .4rem; height: 100%; overflow: hidden; padding-bottom: 1rem; text-decoration: none; transition: border-color .2s, transform .2s; }
+.recommended-card:hover { border-color: var(--color-brand); transform: translateY(-2px); }
+.recommended-photo { aspect-ratio: 1; background: var(--color-canvas); display: block; position: relative; }
+.recommended-photo img { object-fit: cover; }
+.recommended-card strong { -webkit-box-orient: vertical; -webkit-line-clamp: 2; display: -webkit-box; font-size: .95rem; line-height: 1.35; overflow: hidden; padding: .35rem 1rem 0; }
+.recommended-price { color: var(--color-brand); font-size: .9rem; font-weight: 650; padding-inline: 1rem; }
 
 @media (min-width: 901px) {
   .nearby-grid { align-items: stretch; }
@@ -288,6 +296,7 @@ img { display: block; }
 .admin-password .admin-save { justify-self: start; }
 
 @media (max-width: 900px) {
+  .recommended-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .admin-page { grid-template-columns: 1fr; }
   .admin-sidebar { border-bottom: 1px solid var(--color-surface); border-right: 0; height: auto; padding: 1rem var(--space-page); position: static; }
   .admin-brand { border: 0; padding: 0; }
@@ -318,6 +327,7 @@ img { display: block; }
 }
 
 @media (max-width: 640px) {
+  .recommended-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
   .header-inner { height: 76px; }
   .brand { flex: 1; min-width: 0; }
   .brand-logo { height: 3.5rem; width: 3.5rem; }
@@ -376,4 +386,5 @@ img { display: block; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
   .contact-icon { animation: none; }
+  .recommended-card:hover { transform: none; }
 }

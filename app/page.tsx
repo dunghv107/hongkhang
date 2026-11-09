@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NearbyMap from "../components/nearby-map";
+import RecommendedItems from "../components/recommended-items";
 import RoomTypes from "../components/room-types";
 import { getPublicRooms } from "../lib/rooms";
 import { site } from "../lib/site";
@@ -79,6 +80,8 @@ export default async function Home() {
       <RoomTypes rooms={rooms} />
 
       <NearbyMap />
+
+      <RecommendedItems />
 
       <aside className="floating-contact" aria-label="Liên hệ nhanh">
         <a href="https://www.facebook.com/people/Coffee-Nh%C3%A0-G%E1%BB%97/61576986390039/" target="_blank" rel="noreferrer" aria-label="Xem Facebook Coffee Nhà Gỗ, mở trong tab mới">

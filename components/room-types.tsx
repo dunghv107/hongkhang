@@ -34,15 +34,20 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
           ))}
         </div>
         <article id="room-detail" className="room-detail" aria-live="polite">
-          <div className="room-detail-photo">
-            <Image src={selectedImage.secure_url} alt={selectedImage.alt_text || `Phòng ${room.name}`} fill loading="eager" sizes="(max-width: 900px) 100vw, 58vw" />
-            {images.length > 1 && <>
-              <span className="room-image-count" aria-live="polite">{activeImage + 1} / {images.length}</span>
-              <div className="room-image-navigation" aria-label="Điều khiển thư viện ảnh">
-                <button type="button" onClick={selectPreviousImage} aria-label="Xem ảnh trước"><CaretLeftIcon aria-hidden="true" size={24} weight="bold" /></button>
-                <button type="button" onClick={selectNextImage} aria-label="Xem ảnh tiếp theo"><CaretRightIcon aria-hidden="true" size={24} weight="bold" /></button>
-              </div>
-            </>}
+          <div className="room-detail-media">
+            {images.length > 1 && <div className="room-gallery" role="group" aria-label={`Hình ảnh khác của ${room.name}`}>
+              {images.map((image, index) => <button key={image.id ?? image.secure_url} type="button" aria-label={`Xem ảnh ${index + 1} của phòng ${room.name}`} aria-pressed={activeImage === index} onClick={() => setActiveImage(index)}><Image src={image.secure_url} alt="" fill sizes="50px" /></button>)}
+            </div>}
+            <div className="room-detail-photo">
+              <Image src={selectedImage.secure_url} alt={selectedImage.alt_text || `Phòng ${room.name}`} fill loading="eager" sizes="(max-width: 900px) 100vw, 58vw" />
+              {images.length > 1 && <>
+                <span className="room-image-count" aria-live="polite">{activeImage + 1} / {images.length}</span>
+                <div className="room-image-navigation" aria-label="Điều khiển thư viện ảnh">
+                  <button type="button" onClick={selectPreviousImage} aria-label="Xem ảnh trước"><CaretLeftIcon aria-hidden="true" size={24} weight="bold" /></button>
+                  <button type="button" onClick={selectNextImage} aria-label="Xem ảnh tiếp theo"><CaretRightIcon aria-hidden="true" size={24} weight="bold" /></button>
+                </div>
+              </>}
+            </div>
           </div>
           <div className="room-detail-copy">
             <p className="demo-label">Dữ liệu minh họa</p>
@@ -58,15 +63,6 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
             <a className="primary-button" href="tel:0767245949">Liên hệ xem phòng</a>
           </div>
         </article>
-        {images.length > 1 && <section className="room-gallery-section" aria-labelledby="room-gallery-title">
-          <div className="room-gallery-heading">
-            <h4 id="room-gallery-title">Hình ảnh khác của {room.name}</h4>
-            <p>Chọn ảnh để xem kích thước lớn.</p>
-          </div>
-          <div className="room-gallery" aria-label={`Ảnh phòng ${room.name}`}>
-            {images.map((image, index) => <button key={image.id ?? image.secure_url} type="button" aria-label={`Xem ảnh ${index + 1} của phòng ${room.name}`} aria-pressed={activeImage === index} onClick={() => setActiveImage(index)}><Image src={image.secure_url} alt="" fill sizes="(max-width: 640px) 30vw, 180px" /><span>{index + 1}</span></button>)}
-          </div>
-        </section>}
       </div>
     </section>
   );

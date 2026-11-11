@@ -119,8 +119,8 @@ img { display: block; }
 .recommended-section { background: var(--color-canvas); padding-block: clamp(2.25rem, 4.5vw, 4rem); }
 .recommended-grid { display: grid; gap: 1rem; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; }
 .recommended-card { background: var(--color-paper); border: 1px solid var(--color-surface); border-radius: var(--radius); color: var(--color-ink); display: flex; flex-direction: column; gap: .4rem; height: 100%; overflow: hidden; padding-bottom: 1rem; text-decoration: none; transition: border-color .2s, transform .2s; }
-.recommended-card:hover { border-color: var(--color-brand); transform: translateY(-2px); }
-.recommended-photo { aspect-ratio: 1; background: var(--color-canvas); display: block; position: relative; }
+a.recommended-card:hover { border-color: var(--color-brand); transform: translateY(-2px); }
+.recommended-photo { align-items: center; aspect-ratio: 1; background: var(--color-canvas); color: var(--color-brand); display: flex; justify-content: center; position: relative; }
 .recommended-photo img { object-fit: cover; }
 .recommended-card strong { -webkit-box-orient: vertical; -webkit-line-clamp: 2; display: -webkit-box; font-size: .95rem; line-height: 1.35; overflow: hidden; padding: .35rem 1rem 0; }
 .recommended-price { color: var(--color-brand); font-size: .9rem; font-weight: 650; padding-inline: 1rem; }
@@ -296,7 +296,7 @@ img { display: block; }
 .admin-password .admin-save { justify-self: start; }
 
 @media (max-width: 900px) {
-  .recommended-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .recommended-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .admin-page { grid-template-columns: 1fr; }
   .admin-sidebar { border-bottom: 1px solid var(--color-surface); border-right: 0; height: auto; padding: 1rem var(--space-page); position: static; }
   .admin-brand { border: 0; padding: 0; }
@@ -386,5 +386,5 @@ img { display: block; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
   .contact-icon { animation: none; }
-  .recommended-card:hover { transform: none; }
+  a.recommended-card:hover { transform: none; }
 }

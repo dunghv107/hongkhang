@@ -11,7 +11,7 @@ export type RecommendedItem = {
 // Section "Đồ dùng có thể bạn thích" chỉ hiển thị khi danh sách này có ít nhất một món.
 // 4 thẻ chờ bên dưới: thay bằng sản phẩm thật (tên, ảnh, link) khi có.
 export const recommendedItems: readonly RecommendedItem[] = [
-  { name: "Sắp cập nhật" },
+  { name: "Xem sản phẩm trên Shopee", url: "https://s.shopee.vn/7fbJPkgE0T" },
   { name: "Sắp cập nhật" },
   { name: "Sắp cập nhật" },
   { name: "Sắp cập nhật" },

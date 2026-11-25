@@ -46,9 +46,11 @@ export default function NearbyMap() {
         if (!event.ctrlKey) event.stopImmediatePropagation();
       };
       node.addEventListener("wheel", handleWheel, { capture: true });
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      // DNS của một số nhà mạng Việt Nam (như VNPT) chặn openstreetmap.org, nên dùng máy chủ OpenStreetMap France.
+      L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 19,
+        subdomains: "abc",
       }).addTo(instance);
       L.circle([HOME.lat, HOME.lng], { radius: 5000, color: "var(--color-brand)", fillColor: "var(--color-soft)", fillOpacity: 0.08, weight: 1 }).addTo(instance);
       L.marker([HOME.lat, HOME.lng], {

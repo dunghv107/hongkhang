@@ -5,6 +5,10 @@ import { useState } from "react";
 import { SnowflakeIcon } from "@phosphor-icons/react/dist/csr/Snowflake";
 import { WindIcon } from "@phosphor-icons/react/dist/csr/Wind";
 import { ShowerIcon } from "@phosphor-icons/react/dist/csr/Shower";
+import { DropIcon } from "@phosphor-icons/react/dist/csr/Drop";
+import { ToiletIcon } from "@phosphor-icons/react/dist/csr/Toilet";
+import { StudentIcon } from "@phosphor-icons/react/dist/csr/Student";
+import { UsersThreeIcon } from "@phosphor-icons/react/dist/csr/UsersThree";
 import { CaretLeftIcon } from "@phosphor-icons/react/dist/csr/CaretLeft";
 import { CaretRightIcon } from "@phosphor-icons/react/dist/csr/CaretRight";
 import type { RoomType } from "../lib/rooms";
@@ -53,9 +57,14 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
             <p className="demo-label">Dữ liệu minh họa</p>
             <h3>Phòng {room.name}</h3>
             <p className="room-price">{room.price_vnd ? `${(room.price_vnd / 1000000).toLocaleString("vi-VN")} triệu` : "Liên hệ"} {room.price_vnd && <span>/ tháng</span>}</p>
+            <ul className="room-notes">
+              <li><StudentIcon aria-hidden="true" size={22} weight="bold" /><span>Sinh viên giảm 500.000đ/tháng</span></li>
+              <li><UsersThreeIcon aria-hidden="true" size={22} weight="bold" /><span>Phòng ở được từ 1–3 người</span></li>
+            </ul>
             <ul className="amenity-list">
               {room.amenities.map((label) => {
-                const Icon = label.toLowerCase().includes("tắm") ? ShowerIcon : label.toLowerCase().includes("lạnh") ? WindIcon : SnowflakeIcon;
+                const text = label.toLowerCase();
+                const Icon = text.includes("lạnh") ? WindIcon : text.includes("rửa") ? DropIcon : text.includes("vệ sinh") ? ToiletIcon : text.includes("tắm") ? ShowerIcon : SnowflakeIcon;
                 return <li key={label}><Icon aria-hidden="true" size={24} weight="bold" /><span>{label}</span></li>;
               })}
             </ul>

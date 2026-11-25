@@ -100,6 +100,9 @@ img { display: block; }
 .room-detail-copy h3 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.035em; line-height: 1; margin: 0; }
 .room-price { color: var(--color-brand); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 750; margin: 1.25rem 0; }
 .room-price span { font-size: 1rem; font-weight: 550; }
+.room-notes { background: var(--color-canvas); border-radius: 10px; display: grid; gap: .5rem; list-style: none; margin: 0 0 1.25rem; padding: .85rem 1rem; }
+.room-notes li { align-items: center; display: flex; font-weight: 650; gap: .65rem; }
+.room-notes svg { color: var(--color-brand); flex: none; }
 .amenity-list { display: grid; gap: .75rem; list-style: none; margin: 0 0 1.5rem; padding: 0; }
 .amenity-list li { align-items: center; display: flex; gap: .75rem; }
 .amenity-list svg { color: var(--color-brand); flex: none; }

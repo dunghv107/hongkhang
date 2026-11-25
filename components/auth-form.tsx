@@ -91,7 +91,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
   return (
     <main className="auth-page">
       <section className="auth-visual" aria-label="Nhà trọ Hồng Khang">
-        <Image src="/images/san-chung-hong-khang.jpg" alt="Sân chung tại Nhà trọ Hồng Khang" fill priority sizes="(max-width: 840px) 100vw, 48vw" />
+        <Image src="/images/fly-cam-hong-khang.jpg" alt="Toàn cảnh từ trên cao Nhà trọ Hồng Khang bên bờ sông" fill priority sizes="(max-width: 840px) 100vw, 48vw" />
         <div className="auth-visual-overlay" />
         <div className="auth-brand-block">
           <Image src="/images/logo-hong-khang.png" alt="Logo Nhà trọ Hồng Khang" width={112} height={112} />

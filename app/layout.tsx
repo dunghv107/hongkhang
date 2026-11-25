@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "vi_VN",
     type: "website",
-    images: [{ url: "/images/san-chung-hong-khang.jpg", alt: "Sân chung tại Nhà trọ Hồng Khang ở Phước Hậu, Vĩnh Long" }],
+    images: [{ url: "/images/fly-cam-hong-khang.jpg", alt: "Toàn cảnh từ trên cao Nhà trọ Hồng Khang bên bờ sông ở Phước Hậu, Vĩnh Long" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nhà trọ Vĩnh Long tại Phước Hậu | Nhà trọ Hồng Khang",
     description: site.description,
-    images: ["/images/san-chung-hong-khang.jpg"],
+    images: ["/images/fly-cam-hong-khang.jpg"],
   },
 };
 

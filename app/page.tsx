@@ -15,7 +15,7 @@ export default async function Home() {
         "@id": `${site.url}/#business`,
         name: site.name,
         url: site.url,
-        image: `${site.url}/images/san-chung-hong-khang.jpg`,
+        image: `${site.url}/images/fly-cam-hong-khang.jpg`,
         logo: `${site.url}/images/logo-hong-khang.png`,
         telephone: site.phones.map((phone) => `+84${phone.slice(1)}`),
         address: {
@@ -65,7 +65,7 @@ export default async function Home() {
       </header>
 
       <section id="top" className="hero" aria-labelledby="hero-title">
-        <Image className="hero-image" src="/images/san-chung-hong-khang.jpg" alt="Sân chung nhiều cây xanh tại Nhà trọ Hồng Khang" fill priority sizes="100vw" />
+        <Image className="hero-image" src="/images/fly-cam-hong-khang.jpg" alt="Toàn cảnh từ trên cao khu nhà mái đỏ bên bờ sông, xung quanh nhiều cây xanh, tại Nhà trọ Hồng Khang" fill priority sizes="100vw" />
         <div className="hero-overlay" />
         <div className="container hero-content" id="noi-dung">
           <h1 id="hero-title">Nhà trọ Hồng Khang<br />tại Phước Hậu, Vĩnh Long</h1>

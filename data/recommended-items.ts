@@ -1,6 +1,6 @@
 export type RecommendedItem = {
   name: string;
-  /** Ảnh đặt trong public/images/products, ví dụ "/images/products/quat-dung.jpg". Bỏ trống thì thẻ hiện icon thay thế. */
+  /** Ảnh đặt trong public/images/recommend-products, ví dụ "/images/recommend-products/tu-nhua.jpg". Bỏ trống thì thẻ hiện icon thay thế. */
   image?: string;
   /** Link mua hàng (affiliate). Bỏ trống thì thẻ không bấm được. */
   url?: string;
@@ -9,10 +9,9 @@ export type RecommendedItem = {
 };
 
 // Section "Đồ dùng có thể bạn thích" chỉ hiển thị khi danh sách này có ít nhất một món.
-// 4 thẻ chờ bên dưới: thay bằng sản phẩm thật (tên, ảnh, link) khi có.
 export const recommendedItems: readonly RecommendedItem[] = [
-  { name: "Xem sản phẩm trên Shopee", url: "https://s.shopee.vn/7fbJPkgE0T" },
-  { name: "Sắp cập nhật" },
-  { name: "Sắp cập nhật" },
-  { name: "Sắp cập nhật" },
+  { name: "Kệ treo quần áo", url: "https://s.shopee.vn/6q2CRihIrN", image: "/images/recommend-products/ke-treo-quan-ao.jpg" },
+  { name: "Tủ nhựa", url: "https://s.shopee.vn/70Lcgs7oM4", image: "/images/recommend-products/tu-nhua.jpg" },
+  { name: "Kệ chén dĩa", url: "https://s.shopee.vn/7fbJPkgE0T", image: "/images/recommend-products/ke-chen-dia.jpg" },
+  { name: "Bộ pijama", url: "https://s.shopee.vn/7VIGJsvGuy", image: "/images/recommend-products/pijama.jpg" },
 ];

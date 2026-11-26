@@ -4,6 +4,8 @@ export type RecommendedItem = {
   image?: string;
   /** Link mua hàng (affiliate). Bỏ trống thì thẻ không bấm được. */
   url?: string;
+  /** Tên sản phẩm đúng như trên trang bán (Shopee), hiện dưới tên ngắn. */
+  originalName?: string;
   /** Giá tham khảo tại thời điểm thêm vào, có thể thay đổi trên trang bán. */
   priceVnd?: number;
 };

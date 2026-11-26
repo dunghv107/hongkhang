@@ -173,7 +173,7 @@ a.recommended-card:hover { border-color: var(--color-brand); transform: translat
 .floating-contact-icon { height: 1.65rem; object-fit: contain; width: 1.65rem; }
 
 .site-footer { background: var(--color-brand); color: var(--color-paper); }
-.footer-inner { align-items: start; display: grid; gap: 2rem clamp(2rem, 4vw, 4rem); grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); padding-block: clamp(2.5rem, 5vw, 3.5rem) 2rem; }
+.footer-inner { align-items: start; display: grid; gap: 2rem clamp(2rem, 4vw, 4rem); grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(0, 1fr)); padding-block: clamp(2.5rem, 5vw, 3.5rem) 2rem; }
 .site-footer .brand strong { color: var(--color-paper); }
 .footer-about > p { margin: 1rem 0 0; max-width: 24rem; opacity: .85; }
 .footer-column { align-items: flex-start; display: flex; flex-direction: column; }

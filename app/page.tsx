@@ -105,10 +105,6 @@ export default async function Home() {
             <a className="brand" href="#top"><Image className="brand-logo" src="/images/logo-hong-khang.png" alt="" width={64} height={64} /><span>Nhà trọ <strong>Hồng Khang</strong></span></a>
             <p>Phòng trọ tại Phường Phước Hậu, Tỉnh Vĩnh Long.</p>
           </div>
-          <nav className="footer-column" aria-label="Liên kết chân trang">
-            <p className="footer-heading">Khám phá</p>
-            {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
-          </nav>
           <div className="footer-column">
             <p className="footer-heading">Địa chỉ</p>
             <p>75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</p>

@@ -23,6 +23,7 @@ export const nearbyPlaces: readonly NearbyPlace[] = [
   { id: 5277756121, lat: 10.2565286, lng: 105.9660446, name: "Cafe Lan Rừng", address: "Xóm Chài", category: "coffee" },
   { id: 4789236023, lat: 10.2542605, lng: 105.9746591, name: "Lê Giang - Góc Phố", address: "Hùng Vương", category: "coffee" },
   { id: 2610796622, lat: 10.2572103, lng: 105.9701098, name: "Café Võng", address: "", category: "coffee" },
+  { id: 5744403424, lat: 10.2571044, lng: 105.9698969, name: "Thóc Cafe", address: "", category: "coffee" },
   { id: 4882662825, lat: 10.2629742, lng: 105.9695582, name: "Quán An", address: "", category: "coffee" },
   { id: 1388697739, lat: 10.2318213, lng: 105.9596563, name: "Trường Đại học Xây dựng Miền Tây - Khu B", address: "", category: "school" },
   { id: 1067451888, lat: 10.2355781, lng: 105.9621789, name: "Trường Đại học Xây dựng Miền Tây", address: "20B, Phó Cơ Điều", category: "school" },

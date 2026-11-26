@@ -116,8 +116,8 @@ export default async function Home() {
           </div>
           <div className="footer-column">
             <p className="footer-heading">Điện thoại · Zalo</p>
-            <a href="https://zalo.me/0767245949" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0767 245 949, mở trong tab mới">0767 245 949</a>
-            <a href="https://zalo.me/0707352905" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0707 352 905, mở trong tab mới">0707 352 905</a>
+            <a href="https://zalo.me/0767245949" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo cho Gon Duong, số 0767 245 949, mở trong tab mới">0767 245 949 - Gon Duong</a>
+            <a href="https://zalo.me/0707352905" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo cho Duy Khang, số 0707 352 905, mở trong tab mới">0707 352 905 - Duy Khang</a>
           </div>
         </div>
         <div className="container footer-bottom"><p>© {new Date().getFullYear()} Nhà trọ Hồng Khang</p></div>

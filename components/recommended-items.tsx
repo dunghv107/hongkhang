@@ -18,7 +18,7 @@ function CardContent({ item }: { item: RecommendedItem }) {
     </span>
     <strong>{item.name}</strong>
     {item.originalName && <span className="recommended-origin">{item.originalName}</span>}
-    {item.priceVnd !== undefined && <span className="recommended-price">{formatPrice(item)}{item.afterVoucher && <small> sau voucher</small>}</span>}
+    {item.priceVnd !== undefined && <span className="recommended-price">{formatPrice(item)}{item.afterVoucher && <small>sau voucher</small>}</span>}
   </>;
 }
 

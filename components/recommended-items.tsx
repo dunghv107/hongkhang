@@ -7,6 +7,8 @@ import { CaretRightIcon } from "@phosphor-icons/react/dist/csr/CaretRight";
 import { ShoppingBagIcon } from "@phosphor-icons/react/dist/csr/ShoppingBag";
 import { recommendedItems, type RecommendedItem } from "../data/recommended-items";
 
+const formatPrice = (item: RecommendedItem) => `${item.afterVoucher ? "" : "Khoảng "}${item.priceVnd?.toLocaleString("vi-VN")}đ`;
+
 function CardContent({ item }: { item: RecommendedItem }) {
   return <>
     <span className="recommended-photo">
@@ -16,7 +18,7 @@ function CardContent({ item }: { item: RecommendedItem }) {
     </span>
     <strong>{item.name}</strong>
     {item.originalName && <span className="recommended-origin">{item.originalName}</span>}
-    {item.priceVnd !== undefined && <span className="recommended-price">Khoảng {item.priceVnd.toLocaleString("vi-VN")}đ</span>}
+    {item.priceVnd !== undefined && <span className="recommended-price">{formatPrice(item)}{item.afterVoucher && <small> sau voucher</small>}</span>}
   </>;
 }
 
@@ -107,7 +109,7 @@ export default function RecommendedItems() {
           {recommendedItems.map((item, index) => (
             <li key={item.url ?? index}>
               {item.url
-                ? <a className="recommended-card" href={item.url} target="_blank" rel="sponsored noopener noreferrer" draggable={false} aria-label={[item.name, item.originalName, item.priceVnd !== undefined && `khoảng ${item.priceVnd.toLocaleString("vi-VN")} đồng`, "mở trang mua hàng trong tab mới"].filter(Boolean).join(", ")}><CardContent item={item} /></a>
+                ? <a className="recommended-card" href={item.url} target="_blank" rel="sponsored noopener noreferrer" draggable={false} aria-label={[item.name, item.originalName, item.priceVnd !== undefined && `${formatPrice(item)}${item.afterVoucher ? " sau voucher" : ""}`, "mở trang mua hàng trong tab mới"].filter(Boolean).join(", ")}><CardContent item={item} /></a>
                 : <div className="recommended-card"><CardContent item={item} /></div>}
             </li>
           ))}

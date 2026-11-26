@@ -8,12 +8,14 @@ export type RecommendedItem = {
   originalName?: string;
   /** Giá tham khảo tại thời điểm thêm vào, có thể thay đổi trên trang bán. */
   priceVnd?: number;
+  /** true nếu priceVnd là giá sau khi áp voucher. */
+  afterVoucher?: boolean;
 };
 
 // Section "Đồ dùng có thể bạn thích" chỉ hiển thị khi danh sách này có ít nhất một món.
 export const recommendedItems: readonly RecommendedItem[] = [
-  { name: "Kệ treo quần áo", url: "https://s.shopee.vn/6q2CRihIrN", image: "/images/recommend-products/ke-treo-quan-ao.jpg" },
-  { name: "Tủ nhựa", url: "https://s.shopee.vn/70Lcgs7oM4", image: "/images/recommend-products/tu-nhua.jpg" },
-  { name: "Kệ chén dĩa", url: "https://s.shopee.vn/7fbJPkgE0T", image: "/images/recommend-products/ke-chen-dia.jpg" },
-  { name: "Bộ pijama", url: "https://s.shopee.vn/7VIGJsvGuy", image: "/images/recommend-products/pijama.jpg" },
+  { name: "Kệ treo quần áo", originalName: "Kệ Treo Quần Áo Kèm Kệ Giày Đa Năng, Gọn Gàng", priceVnd: 263120, afterVoucher: true, url: "https://s.shopee.vn/6q2CRihIrN", image: "/images/recommend-products/ke-treo-quan-ao.jpg" },
+  { name: "Tủ nhựa", originalName: "Tủ Nhựa Để Đồ 4 5 6 tầng ZenZone có ngăn kéo Đa Năng", priceVnd: 307120, afterVoucher: true, url: "https://s.shopee.vn/70Lcgs7oM4", image: "/images/recommend-products/tu-nhua.jpg" },
+  { name: "Kệ chén dĩa", originalName: "Kệ Úp Chén Đĩa Nhiều Tầng", priceVnd: 210320, afterVoucher: true, url: "https://s.shopee.vn/7fbJPkgE0T", image: "/images/recommend-products/ke-chen-dia.jpg" },
+  { name: "Bộ pijama", originalName: "Đồ Ngủ nữ Kẻ Sọc Dài Tay Viền Đen", priceVnd: 207680, afterVoucher: true, url: "https://s.shopee.vn/7VIGJsvGuy", image: "/images/recommend-products/pijama.jpg" },
 ];

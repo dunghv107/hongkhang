@@ -4,11 +4,13 @@ export type NearbyPlace = {
   lng: number;
   name: string;
   address: string;
-  category: "hospital" | "market" | "school" | "mall" | "football" | "badminton";
+  category: "hospital" | "market" | "school" | "mall" | "football" | "badminton" | "coffee";
   rating?: number;
 };
 
 export const nearbyPlaces: readonly NearbyPlace[] = [
+  // Quán nằm ngay tại nhà trọ; lệch nhẹ về phía đông để ghim không che ghim nhà trọ.
+  { id: 1, lat: 10.2298617, lng: 105.9628065, name: "Coffee Nhà Gỗ", address: "Ngay trong khuôn viên Nhà trọ Hồng Khang", category: "coffee" },
   { id: 1388697739, lat: 10.2318213, lng: 105.9596563, name: "Trường Đại học Xây dựng Miền Tây - Khu B", address: "", category: "school" },
   { id: 1067451888, lat: 10.2355781, lng: 105.9621789, name: "Trường Đại học Xây dựng Miền Tây", address: "20B, Phó Cơ Điều", category: "school" },
   { id: 1421512669, lat: 10.2352361, lng: 105.9658508, name: "Trường Mầm non 3", address: "71, Mậu Thân", category: "school" },

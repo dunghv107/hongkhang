@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { LayerGroup, Map as LeafletMap } from "leaflet";
-import { Buildings, GraduationCap, Hospital, Racquet, SoccerBall, Storefront } from "@phosphor-icons/react";
+import { Buildings, Coffee, GraduationCap, Hospital, Racquet, SoccerBall, Storefront } from "@phosphor-icons/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { nearbyPlaces } from "../data/nearby-places";
 
@@ -15,6 +15,7 @@ const categories = {
   mall: { label: "Trung tâm thương mại", icon: Buildings },
   football: { label: "Sân bóng đá", icon: SoccerBall },
   badminton: { label: "Sân cầu lông", icon: Racquet },
+  coffee: { label: "Cà phê", icon: Coffee },
 } as const;
 
 type Category = keyof typeof categories;
@@ -86,7 +87,8 @@ export default function NearbyMap() {
         const name = document.createElement("strong");
         const details = document.createElement("p");
         name.textContent = placeName;
-        details.textContent = `${address || categories[category].label} · ${distanceKm(lat, lng).toFixed(1)} km đường chim bay${rating ? ` · ★ ${rating.toFixed(1)}` : ""}`;
+        const km = distanceKm(lat, lng);
+        details.textContent = `${address || categories[category].label}${km >= 0.1 ? ` · ${km.toFixed(1)} km đường chim bay` : ""}${rating ? ` · ★ ${rating.toFixed(1)}` : ""}`;
         popup.append(name, details);
         const marker = L.marker([lat, lng], {
           alt: placeName,

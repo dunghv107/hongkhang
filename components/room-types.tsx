@@ -61,7 +61,10 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
           <div className="room-detail-copy">
             <p className="demo-label">Dữ liệu minh họa</p>
             <h3>Phòng {room.name}</h3>
-            <p className="room-price">{room.price_vnd ? `${(room.price_vnd / 1000000).toLocaleString("vi-VN")} triệu` : "Liên hệ"} {room.price_vnd && <span>/ tháng</span>}</p>
+            <div className="room-price-row">
+              <p className="room-price">{room.price_vnd ? `${(room.price_vnd / 1000000).toLocaleString("vi-VN")} triệu` : "Liên hệ"} {room.price_vnd && <span>/ tháng</span>}</p>
+              {room.available_rooms !== undefined && <span className="room-availability">Còn {room.available_rooms} phòng</span>}
+            </div>
             <ul className="room-notes">
               <li><StudentIcon aria-hidden="true" size={22} weight="bold" /><span>Sinh viên giảm 500.000đ/tháng</span></li>
               <li><UsersThreeIcon aria-hidden="true" size={22} weight="bold" /><span>Phòng ở được từ 1–3 người</span></li>

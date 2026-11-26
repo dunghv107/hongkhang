@@ -1,8 +1,8 @@
 export type RoomImage = { id?: string; secure_url: string; public_id?: string | null; alt_text: string; sort_order: number };
-export type RoomType = { id: string; name: string; price_vnd: number | null; amenities: string[]; sort_order: number; published: boolean; room_images: RoomImage[] };
+export type RoomType = { id: string; name: string; price_vnd: number | null; amenities: string[]; available_rooms?: number; sort_order: number; published: boolean; room_images: RoomImage[] };
 
 export const fallbackRooms: RoomType[] = [
-  { id: "1", name: "Loại 1", price_vnd: 4000000, amenities: ["Máy lạnh", "Bồn rửa", "Nhà vệ sinh trong phòng"], sort_order: 1, published: true, room_images: [
+  { id: "1", name: "Loại 1", price_vnd: 4000000, available_rooms: 2, amenities: ["Máy lạnh", "Bồn rửa", "Nhà vệ sinh trong phòng"], sort_order: 1, published: true, room_images: [
     { secure_url: "/images/room-1/cua-phong.jpg", alt_text: "Cửa gỗ phòng 103 trên tường gạch, bên cạnh tượng gỗ chim công", sort_order: 1 },
     { secure_url: "/images/room-1/toan-phong.jpg", alt_text: "Phòng Loại 1 có bàn ăn, ghế gỗ, tủ quần áo và cửa sổ tròn", sort_order: 2 },
     { secure_url: "/images/room-1/tong-quan.jpg", alt_text: "Toàn cảnh phòng Loại 1 với giường đôi, máy lạnh, bàn ghế và sàn giả gỗ", sort_order: 3 },
@@ -11,7 +11,7 @@ export const fallbackRooms: RoomType[] = [
     { secure_url: "/images/room-1/bon-rua.jpg", alt_text: "Khu bếp phòng Loại 1 có bồn rửa, kệ chén và tủ gỗ", sort_order: 6 },
     { secure_url: "/images/room-1/nha-ve-sinh.jpg", alt_text: "Nhà vệ sinh phòng Loại 1 có bồn cầu, lavabo, gương và vòi xịt", sort_order: 7 },
   ] },
-  { id: "2", name: "Loại 2", price_vnd: 2500000, amenities: ["Máy lạnh", "Bồn rửa", "Nhà vệ sinh trong phòng"], sort_order: 2, published: true, room_images: [
+  { id: "2", name: "Loại 2", price_vnd: 2500000, available_rooms: 1, amenities: ["Máy lạnh", "Bồn rửa", "Nhà vệ sinh trong phòng"], sort_order: 2, published: true, room_images: [
     { secure_url: "/images/room-2/truoc-cua.jpg", alt_text: "Mặt tiền Nhà trọ Hồng Khang với bảng tên, cổng sắt và cây xanh trước cửa", sort_order: 1 },
     { secure_url: "/images/room-2/tong-quan.jpg", alt_text: "Toàn cảnh phòng Loại 2 lát gạch xám, có máy lạnh và cửa sổ gỗ", sort_order: 2 },
     { secure_url: "/images/room-2/anh-chung.jpg", alt_text: "Phòng Loại 2 nhìn ra cửa kính ban công, rèm xám và kệ gỗ nhỏ", sort_order: 3 },

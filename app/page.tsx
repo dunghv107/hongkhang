@@ -100,7 +100,7 @@ export default async function Home() {
           <div className="footer-contact"><span>Địa chỉ</span><strong>75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</strong></div>
           <div className="footer-contact">
             <span>Điện thoại</span>
-            <div className="phone-list"><a href="tel:0767245949">0767 245 949</a><a href="tel:0764494933">0764 494 933</a></div>
+            <div className="phone-list"><a href="https://zalo.me/0767245949" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0767 245 949, mở trong tab mới">0767 245 949</a><a href="https://zalo.me/0707352905" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0707 352 905, mở trong tab mới">0707 352 905</a></div>
           </div>
         </div>
       </footer>

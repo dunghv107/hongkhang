@@ -9,7 +9,7 @@ export const site = {
     region: "Vĩnh Long",
     country: "VN",
   },
-  phones: ["0767245949", "0764494933"],
+  phones: ["0767245949", "0707352905"],
   geo: { latitude: 10.2298617, longitude: 105.9626565 },
   facebook:
     "https://www.facebook.com/people/Coffee-Nh%C3%A0-G%E1%BB%97/61576986390039/",

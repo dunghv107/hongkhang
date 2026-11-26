@@ -49,8 +49,6 @@ img { display: block; }
 .site-header nav { align-items: center; display: flex; gap: clamp(1.1rem, 3vw, 2.25rem); }
 .site-header nav a { align-items: center; display: inline-flex; font-size: .92rem; font-weight: 550; min-height: 44px; text-decoration: none; }
 .site-header nav a:hover { color: var(--color-brand); }
-.auth-link { background: var(--color-call); border-radius: 999px; color: var(--color-paper); padding: .55rem 1.15rem; }
-.site-header nav .auth-link:hover { background: var(--color-call-hover); color: var(--color-paper); }
 
 .hero { min-height: min(72dvh, 680px); position: relative; }
 .hero-image { object-fit: cover; object-position: center 47%; }
@@ -349,8 +347,7 @@ a.recommended-card:hover { border-color: var(--color-brand); transform: translat
   .header-inner { height: 76px; }
   .brand { flex: 1; min-width: 0; }
   .brand-logo { height: 3.5rem; width: 3.5rem; }
-  .site-header nav { display: flex; flex: none; gap: 0; }
-  .site-header nav a:not(.auth-link) { display: none; }
+  .site-header nav { display: none; }
   .hero, .hero-content { min-height: 72dvh; }
   .hero-content { grid-template-columns: minmax(0, 1fr); }
   .local-intro-copy { grid-column: 1; grid-row: auto; margin-top: 1.5rem; }

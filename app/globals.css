@@ -173,8 +173,6 @@ a.recommended-card:hover { border-color: var(--color-brand); transform: translat
 .floating-contact a { align-items: center; background: var(--color-paper); border: 1px solid var(--color-surface); border-radius: 50%; display: flex; height: 52px; justify-content: center; text-decoration: none; transition: background-color .2s, transform .2s; width: 52px; }
 .floating-contact a:hover { background: var(--color-canvas); transform: scale(1.06); }
 .floating-contact a:active { transform: scale(.96); }
-.floating-contact .floating-call { background: var(--color-brand); border-color: var(--color-brand); }
-.floating-contact .floating-call:hover { background: var(--color-ink); }
 .floating-contact-icon { height: 1.65rem; object-fit: contain; width: 1.65rem; }
 
 .site-footer { background: var(--color-brand); color: var(--color-paper); }

@@ -77,7 +77,7 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
               })}
             </ul>
             <p className="demo-note">Giá và tiện ích cần được thay bằng thông tin thực tế trước khi đăng chính thức.</p>
-            <a className="primary-button" href="tel:0767245949">Liên hệ xem phòng</a>
+            <a className="primary-button" href="https://www.facebook.com/duykhang.duongvo/" target="_blank" rel="noreferrer" aria-label="Liên hệ xem phòng qua Facebook, mở trong tab mới">Liên hệ xem phòng</a>
           </div>
         </article>
       </div>

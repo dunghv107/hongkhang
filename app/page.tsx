@@ -90,8 +90,8 @@ export default async function Home() {
         <a href="https://zalo.me/0707352905" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo cho Nhà trọ Hồng Khang, mở trong tab mới">
           <Image className="floating-contact-icon contact-icon" src="/icons/zalo.svg" alt="" aria-hidden="true" width={28} height={28} />
         </a>
-        <a className="floating-call" href="tel:0767245949" aria-label="Gọi Nhà trọ Hồng Khang theo số 0767 245 949">
-          <Image className="floating-contact-icon" src="/icons/phone.svg" alt="" aria-hidden="true" width={24} height={24} />
+        <a href="https://www.instagram.com/poticutee/" target="_blank" rel="noreferrer" aria-label="Xem Instagram, mở trong tab mới">
+          <Image className="floating-contact-icon contact-icon" src="/icons/instagram.svg" alt="" aria-hidden="true" width={26} height={26} />
         </a>
       </aside>
 

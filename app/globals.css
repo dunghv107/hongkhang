@@ -181,7 +181,7 @@ a.recommended-card:hover { border-color: var(--color-brand); transform: translat
 .footer-contact strong, .phone-list a { font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 650; }
 
 @media (min-width: 1320px) {
-  .header-inner, .footer-inner { max-width: none; padding-inline: 6rem; }
+  .container { max-width: none; padding-inline: 6rem; }
   .footer-inner { grid-template-columns: repeat(3, auto); justify-content: space-between; }
 }
 

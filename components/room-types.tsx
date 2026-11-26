@@ -6,19 +6,20 @@ import { SnowflakeIcon } from "@phosphor-icons/react/dist/csr/Snowflake";
 import { WindIcon } from "@phosphor-icons/react/dist/csr/Wind";
 import { ShowerIcon } from "@phosphor-icons/react/dist/csr/Shower";
 import { DropIcon } from "@phosphor-icons/react/dist/csr/Drop";
-import { ToiletIcon } from "@phosphor-icons/react/dist/csr/Toilet";
+import { BathtubIcon } from "@phosphor-icons/react/dist/csr/Bathtub";
 import { StudentIcon } from "@phosphor-icons/react/dist/csr/Student";
 import { UsersThreeIcon } from "@phosphor-icons/react/dist/csr/UsersThree";
 import { CaretLeftIcon } from "@phosphor-icons/react/dist/csr/CaretLeft";
 import { CaretRightIcon } from "@phosphor-icons/react/dist/csr/CaretRight";
 import type { RoomType } from "../lib/rooms";
 
+const imagesOf = (room: RoomType) => room.room_images.length ? room.room_images : [{ secure_url: "/images/room-1-door.png", alt_text: `Phòng ${room.name}`, sort_order: 1 }];
+
 export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
   const [active, setActive] = useState(0);
   const [activeImage, setActiveImage] = useState(0);
   const room = rooms[active];
-  const images = room.room_images.length ? room.room_images : [{ secure_url: "/images/room-1-door.png", alt_text: `Phòng ${room.name}`, sort_order: 1 }];
-  const selectedImage = images[activeImage] ?? images[0];
+  const images = imagesOf(room);
   const selectPreviousImage = () => setActiveImage((current) => (current - 1 + images.length) % images.length);
   const selectNextImage = () => setActiveImage((current) => (current + 1) % images.length);
 
@@ -43,7 +44,11 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
               {images.map((image, index) => <button key={image.id ?? image.secure_url} type="button" aria-label={`Xem ảnh ${index + 1} của phòng ${room.name}`} aria-pressed={activeImage === index} onClick={() => setActiveImage(index)}><Image src={image.secure_url} alt="" fill sizes="50px" /></button>)}
             </div>}
             <div className="room-detail-photo">
-              <Image src={selectedImage.secure_url} alt={selectedImage.alt_text || `Phòng ${room.name}`} fill loading="eager" sizes="(max-width: 900px) 100vw, 58vw" />
+              {/* Render every room photo stacked and show only the active one, so switching photos never waits for a download. */}
+              {rooms.map((item, roomIndex) => imagesOf(item).map((image, imageIndex) => {
+                const isActive = roomIndex === active && imageIndex === activeImage;
+                return <Image key={`${item.id}-${image.secure_url}`} className={isActive ? "is-active" : undefined} src={image.secure_url} alt={isActive ? image.alt_text || `Phòng ${item.name}` : ""} aria-hidden={!isActive} fill loading={isActive ? "eager" : "lazy"} sizes="(max-width: 900px) 100vw, 58vw" />;
+              }))}
               {images.length > 1 && <>
                 <span className="room-image-count" aria-live="polite">{activeImage + 1} / {images.length}</span>
                 <div className="room-image-navigation" aria-label="Điều khiển thư viện ảnh">
@@ -64,7 +69,7 @@ export default function RoomTypes({ rooms }: { rooms: RoomType[] }) {
             <ul className="amenity-list">
               {room.amenities.map((label) => {
                 const text = label.toLowerCase();
-                const Icon = text.includes("lạnh") ? WindIcon : text.includes("rửa") ? DropIcon : text.includes("vệ sinh") ? ToiletIcon : text.includes("tắm") ? ShowerIcon : SnowflakeIcon;
+                const Icon = text.includes("lạnh") ? WindIcon : text.includes("rửa") ? DropIcon : text.includes("vệ sinh") ? BathtubIcon : text.includes("tắm") ? ShowerIcon : SnowflakeIcon;
                 return <li key={label}><Icon aria-hidden="true" size={24} weight="bold" /><span>{label}</span></li>;
               })}
             </ul>

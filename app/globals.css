@@ -90,6 +90,8 @@ img { display: block; }
 .room-gallery button:hover, .room-gallery button[aria-pressed="true"] { border-color: var(--color-brand); }
 .room-gallery button:focus-visible { outline: 3px solid var(--color-soft); outline-offset: 1px; }
 .room-gallery img { object-fit: cover; }
+.room-detail-photo > img { opacity: 0; transition: opacity .2s; }
+.room-detail-photo > img.is-active { opacity: 1; }
 .room-detail-photo { flex: 1; min-width: 0; min-height: 470px; position: relative; }
 .room-image-count { background: var(--color-ink); border-radius: 999px; color: var(--color-paper); font-size: .82rem; font-weight: 700; left: 1rem; padding: .35rem .65rem; position: absolute; top: 1rem; z-index: 1; }
 .room-image-navigation { bottom: 1rem; display: flex; gap: .5rem; position: absolute; right: 1rem; z-index: 1; }

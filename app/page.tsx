@@ -5,6 +5,12 @@ import RoomTypes from "../components/room-types";
 import { getPublicRooms } from "../lib/rooms";
 import { site } from "../lib/site";
 
+const navItems = [
+  { href: "#khong-gian", label: "Không gian" },
+  { href: "#vi-tri", label: "Vị trí" },
+  { href: "#do-dung", label: "Đồ dùng" },
+];
+
 export default async function Home() {
   const rooms = await getPublicRooms();
   const structuredData = {
@@ -54,11 +60,10 @@ export default async function Home() {
         <div className="container header-inner">
           <a className="brand" href="#top" aria-label="Nhà trọ Hồng Khang, trang chủ">
             <Image className="brand-logo" src="/images/logo-hong-khang.png" alt="" width={64} height={64} priority />
-            <span>Nhà trọ<br /><strong>Hồng Khang</strong></span>
+            <span>Nhà trọ <strong>Hồng Khang</strong></span>
           </a>
           <nav aria-label="Điều hướng chính">
-            <a href="#khong-gian">Không gian</a>
-            <a href="#vi-tri">Vị trí</a>
+            {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
           </nav>
         </div>
       </header>
@@ -96,13 +101,26 @@ export default async function Home() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          <a className="brand footer-brand" href="#top"><Image className="brand-logo" src="/images/logo-hong-khang.png" alt="" width={64} height={64} /><span>Nhà trọ <strong>Hồng Khang</strong></span></a>
-          <div className="footer-contact"><span>Địa chỉ</span><strong>75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</strong></div>
-          <div className="footer-contact">
-            <span>Điện thoại</span>
-            <div className="phone-list"><a href="https://zalo.me/0767245949" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0767 245 949, mở trong tab mới">0767 245 949</a><a href="https://zalo.me/0707352905" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0707 352 905, mở trong tab mới">0707 352 905</a></div>
+          <div className="footer-about">
+            <a className="brand" href="#top"><Image className="brand-logo" src="/images/logo-hong-khang.png" alt="" width={64} height={64} /><span>Nhà trọ <strong>Hồng Khang</strong></span></a>
+            <p>Phòng trọ tại Phường Phước Hậu, Tỉnh Vĩnh Long.</p>
+          </div>
+          <nav className="footer-column" aria-label="Liên kết chân trang">
+            <p className="footer-heading">Khám phá</p>
+            {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+          </nav>
+          <div className="footer-column">
+            <p className="footer-heading">Địa chỉ</p>
+            <p>75/19E, Phường Phước Hậu, Tỉnh Vĩnh Long</p>
+            <a href={`https://www.google.com/maps/search/?api=1&query=${site.geo.latitude},${site.geo.longitude}`} target="_blank" rel="noreferrer">Chỉ đường trên Google Maps</a>
+          </div>
+          <div className="footer-column">
+            <p className="footer-heading">Điện thoại · Zalo</p>
+            <a href="https://zalo.me/0767245949" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0767 245 949, mở trong tab mới">0767 245 949</a>
+            <a href="https://zalo.me/0707352905" target="_blank" rel="noreferrer" aria-label="Nhắn Zalo số 0707 352 905, mở trong tab mới">0707 352 905</a>
           </div>
         </div>
+        <div className="container footer-bottom"><p>© {new Date().getFullYear()} Nhà trọ Hồng Khang</p></div>
       </footer>
     </main>
   );

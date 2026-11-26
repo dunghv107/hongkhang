@@ -83,7 +83,7 @@ export default function RecommendedItems() {
   const hasLinks = recommendedItems.some((item) => item.url);
 
   return (
-    <section className="recommended-section" aria-labelledby="recommended-title">
+    <section id="do-dung" className="recommended-section" aria-labelledby="recommended-title">
       <div className="container">
         <div className="recommended-header">
           <div className="section-intro">

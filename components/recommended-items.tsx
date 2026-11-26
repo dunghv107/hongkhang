@@ -80,7 +80,6 @@ export default function RecommendedItems() {
   }
 
   if (!recommendedItems.length) return null;
-  const hasLinks = recommendedItems.some((item) => item.url);
 
   return (
     <section id="do-dung" className="recommended-section" aria-labelledby="recommended-title">
@@ -88,7 +87,6 @@ export default function RecommendedItems() {
         <div className="recommended-header">
           <div className="section-intro">
             <h2 id="recommended-title">Đồ dùng có thể bạn thích</h2>
-            {hasLinks && <p>Một số liên kết là liên kết tiếp thị. Nhà trọ có thể nhận hoa hồng khi bạn mua hàng, giá của bạn không đổi.</p>}
           </div>
           <div className="recommended-controls">
             <button type="button" onClick={() => slide(-1)} disabled={!canPrev} aria-label="Xem các món trước"><CaretLeftIcon aria-hidden="true" size={22} weight="bold" /></button>
